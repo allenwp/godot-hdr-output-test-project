@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://cikrx8e0qde6d"]
+
+[ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://colour.gdshader" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://colour_value_scripts/max.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://jnc4cr2mhg00" path="res://in_game_hdr_settings.tscn" id="3_h2yge"]
+
+[sub_resource type="Environment" id="Environment_ig7tw"]
+background_mode = 3
+ambient_light_source = 1
+reflected_light_source = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(1.5060139, 1.5060139, 1.5060139)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ig7tw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_0xm2m")
+position = Vector2(1596, 99)
+scale = Vector2(50, 20)
+mesh = SubResource("QuadMesh_h2yge")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1571.0
+offset_top = 66.0
+offset_right = 1621.0
+offset_bottom = 89.0
+text = "Black"
+horizontal_alignment = 1
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_h2yge")
+position = Vector2(1645.9999, 99.00001)
+scale = Vector2(50, 20)
+mesh = SubResource("QuadMesh_h2yge")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1621.0
+offset_top = 66.0
+offset_right = 1671.0
+offset_bottom = 89.0
+text = "White"
+horizontal_alignment = 1
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_1bvp3")
+position = Vector2(1696.0001, 99)
+scale = Vector2(50, 20)
+mesh = SubResource("QuadMesh_h2yge")
+script = ExtResource("2_0xm2m")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1671.0
+offset_top = 66.0
+offset_right = 1721.0
+offset_bottom = 89.0
+text = "Max"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 258.0
+offset_bottom = 207.0
+color = Color(0.21710123, 0.21710123, 0.21710123, 1)
+
+[node name="InGameHDRSettings" parent="." instance=ExtResource("3_h2yge")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 245.0
+offset_bottom = 189.0

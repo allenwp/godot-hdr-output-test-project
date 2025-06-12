@@ -7,6 +7,13 @@ func _is_hdr_supported(window: Window) -> bool:
 		&& DisplayServer.window_is_hdr_output_supported(window.get_window_id())
 
 
+func _on_visibility_changed() -> void:
+	if visible:
+		process_mode = Node.PROCESS_MODE_INHERIT
+	else:
+		process_mode = Node.PROCESS_MODE_DISABLED
+
+
 func _process(_delta: float) -> void:
 	var window: Window = get_window()
 	var hdr_supported := _is_hdr_supported(window)

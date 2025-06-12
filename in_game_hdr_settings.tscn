@@ -92,6 +92,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Reset"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="toggled" from="HDRCheckButton" to="." method="_on_hdr_check_button_toggled"]
 [connection signal="drag_started" from="HDROptions/VBoxContainer/HBoxContainer3/BrightnessSlider" to="." method="_on_brightness_slider_drag_started"]
 [connection signal="value_changed" from="HDROptions/VBoxContainer/HBoxContainer3/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]

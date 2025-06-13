@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://40a2awmcg38r"]
+
+[sub_resource type="Shader" id="Shader_7mycd"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec3 colour;
+
+void fragment() {
+	COLOR = vec4(colour.rgb, 1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(1, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgw1f"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(1, -10, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(1, -10, -10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(1, 0, -10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(1, -100, -100)
+
+[node name="sRGBPrimary" type="MeshInstance2D"]
+material = SubResource("ShaderMaterial_272bh")
+scale = Vector2(256, 64)
+mesh = SubResource("QuadMesh_h2yge")
+
+[node name="Negative" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_cgw1f")
+position = Vector2(-0.25, 0)
+scale = Vector2(0.375, 0.75)
+mesh = SubResource("QuadMesh_h2yge")
+
+[node name="Negative" type="MeshInstance2D" parent="Negative"]
+material = SubResource("ShaderMaterial_5vw27")
+scale = Vector2(0.5, 0.5)
+mesh = SubResource("QuadMesh_h2yge")
+
+[node name="Negative2" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_kek77")
+position = Vector2(0.25, 0)
+scale = Vector2(0.37500006, 0.7500001)
+mesh = SubResource("QuadMesh_h2yge")
+
+[node name="Negative" type="MeshInstance2D" parent="Negative2"]
+material = SubResource("ShaderMaterial_4c57u")
+scale = Vector2(0.4999999, 0.4999999)
+mesh = SubResource("QuadMesh_h2yge")

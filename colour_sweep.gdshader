@@ -1,15 +1,15 @@
 shader_type canvas_item;
 render_mode unshaded;
 
-uniform float log2_min = -5.0;
-uniform float log2_max = 5.0;
+uniform float log2_min = -18.0;
+uniform float log2_max = 18.0;
 uniform bool clip = false;
 uniform float clip_value = 10;
 
 void fragment() {
 	vec3 color;
 	float top_bar = 0.02;
-	float log2_value = UV.x * (log2_max - log2_min) - abs(log2_min);
+	float log2_value = UV.x * (log2_max - log2_min) + log2_min;
 	float scale = pow(2.0, log2_value);
 
 	if (UV.y >= top_bar)

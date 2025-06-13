@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cikrx8e0qde6d"]
+[gd_scene load_steps=26 format=3 uid="uid://cikrx8e0qde6d"]
 
 [ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://colour.gdshader" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://colour_value_scripts/max.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c74bp7pq3jbkx" path="res://developer_settings.gd" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://jnc4cr2mhg00" path="res://in_game_hdr_settings.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cqjmg63jbxlns" path="res://colour_sweep.gd" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://s_rgb_primary.tscn" id="7_272bh"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 3
@@ -22,7 +25,7 @@ shader_parameter/colour = Vector3(1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.5060139, 1.5060139, 1.5060139)
+shader_parameter/colour = Vector3(1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
 shader = ExtResource("4_1bvp3")
@@ -32,6 +35,57 @@ shader_parameter/clip = false
 shader_parameter/clip_value = 10.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
+
+[sub_resource type="Shader" id="Shader_7mycd"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec3 colour;
+
+void fragment() {
+	COLOR = vec4(colour.rgb, 1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, 1, -10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, 1, -10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-100, 1, -100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycdy4"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w48qg"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, -10, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vivmo"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, -10, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cqfq"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-100, -100, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -57,12 +111,36 @@ offset_top = 7.0
 offset_right = 245.0
 offset_bottom = 189.0
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 217.0
+offset_right = 258.0
+offset_bottom = 292.0
+color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+
+[node name="DeveloperSettings" type="VBoxContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 218.0
+offset_bottom = 66.0
+script = ExtResource("2_7mycd")
+
+[node name="Label" type="Label" parent="ColorRect2/DeveloperSettings"]
+layout_mode = 2
+text = "Developer settings:"
+
+[node name="PreferHighPrecision" type="CheckButton" parent="ColorRect2/DeveloperSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Prefer high precision"
+
 [node name="BlackWhiteMax" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 8.0
-offset_top = 219.0
-offset_right = 168.0
-offset_bottom = 270.0
+offset_left = 49.0
+offset_top = 301.0
+offset_right = 209.0
+offset_bottom = 352.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="BlackWhiteMax"]
 material = SubResource("ShaderMaterial_0xm2m")
@@ -110,54 +188,128 @@ offset_bottom = 25.0
 text = "Max"
 horizontal_alignment = 1
 
-[node name="ColourSweep" type="Node" parent="."]
+[node name="ColourSweep" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 264.0
+offset_right = 264.0
+script = ExtResource("4_lquwl")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="ColourSweep"]
+[node name="ColorRect" type="ColorRect" parent="ColourSweep"]
+layout_mode = 0
+offset_right = 1656.0
+offset_bottom = 622.0
+color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+
+[node name="ColourSweepMesh" type="MeshInstance2D" parent="ColourSweep"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_lquwl")
-position = Vector2(1084, 295)
+position = Vector2(828, 327)
 scale = Vector2(1644, -576)
 mesh = SubResource("QuadMesh_7mycd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColourSweep"]
-offset_left = 752.0
-offset_top = 596.0
-offset_right = 1905.0
-offset_bottom = 636.0
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1656.0
+offset_bottom = 42.0
+alignment = 1
 
-[node name="Label3" type="Label" parent="ColourSweep/HBoxContainer"]
-layout_mode = 2
-text = "Colour sweep settings:"
-
-[node name="CheckButton" type="CheckButton" parent="ColourSweep/HBoxContainer"]
+[node name="ClipToMax" type="CheckButton" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2
 text = "Clip to max luminance"
 
 [node name="Label" type="Label" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2
-text = "Min exposure (stops)"
+text = "Min"
 
-[node name="HSlider" type="HSlider" parent="ColourSweep/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="MinHSlider" type="HSlider" parent="ColourSweep/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(315, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = -25.0
 max_value = 25.0
-value = -18.0
+step = 0.05000000000291038
+value = -17.999999999592546
 
 [node name="MinExposureLabel" type="Label" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2
-text = "Max exposure (stops)"
+text = "Max"
 
-[node name="HSlider2" type="HSlider" parent="ColourSweep/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="MaxHSlider" type="HSlider" parent="ColourSweep/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(315, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = -25.0
 max_value = 25.0
-value = 18.0
+step = 0.05000000000291038
+value = 18.00000000250293
 
 [node name="MinExposureLabel2" type="Label" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2
+
+[node name="SweepMinLabel" type="Label" parent="ColourSweep"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 309.0
+offset_bottom = 33.0
+text = "-18.00 stops (linear 0.00000)"
+
+[node name="SweepMaxLabel" type="Label" parent="ColourSweep"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1320.0
+offset_top = 10.0
+offset_right = 1644.0
+offset_bottom = 33.0
+text = "+18.00 stops (linear 262144.00000)"
+horizontal_alignment = 2
+
+[node name="sRGBPrimaryRed" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(133, 392)
+
+[node name="sRGBPrimaryGreen" parent="." instance=ExtResource("7_272bh")]
+material = SubResource("ShaderMaterial_5vw27")
+position = Vector2(133, 462)
+
+[node name="Negative" parent="sRGBPrimaryGreen" index="0"]
+material = SubResource("ShaderMaterial_kek77")
+
+[node name="Negative" parent="sRGBPrimaryGreen/Negative" index="0"]
+material = SubResource("ShaderMaterial_4c57u")
+
+[node name="Negative2" parent="sRGBPrimaryGreen" index="1"]
+material = SubResource("ShaderMaterial_efxa6")
+
+[node name="Negative" parent="sRGBPrimaryGreen/Negative2" index="0"]
+material = SubResource("ShaderMaterial_dg77c")
+
+[node name="sRGBPrimaryBlue" parent="." instance=ExtResource("7_272bh")]
+material = SubResource("ShaderMaterial_272bh")
+position = Vector2(133, 532)
+
+[node name="Negative" parent="sRGBPrimaryBlue" index="0"]
+material = SubResource("ShaderMaterial_ycdy4")
+
+[node name="Negative" parent="sRGBPrimaryBlue/Negative" index="0"]
+material = SubResource("ShaderMaterial_w48qg")
+
+[node name="Negative2" parent="sRGBPrimaryBlue" index="1"]
+material = SubResource("ShaderMaterial_vivmo")
+
+[node name="Negative" parent="sRGBPrimaryBlue/Negative2" index="0"]
+material = SubResource("ShaderMaterial_2cqfq")
+
+[connection signal="toggled" from="ColorRect2/DeveloperSettings/PreferHighPrecision" to="ColorRect2/DeveloperSettings" method="_on_prefer_high_precision_toggled"]
+[connection signal="toggled" from="ColourSweep/HBoxContainer/ClipToMax" to="ColourSweep" method="_on_clip_to_max_toggled"]
+[connection signal="value_changed" from="ColourSweep/HBoxContainer/MinHSlider" to="ColourSweep" method="_on_min_h_slider_value_changed"]
+[connection signal="value_changed" from="ColourSweep/HBoxContainer/MaxHSlider" to="ColourSweep" method="_on_max_h_slider_value_changed"]
+
+[editable path="sRGBPrimaryGreen"]
+[editable path="sRGBPrimaryBlue"]

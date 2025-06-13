@@ -1,5 +1,7 @@
 extends Control
 
+const HDR_SETTINGS_FILE = "user://hdr_settings.cfg"
+const HDR_SETTINGS_SECTION = "HDR"
 
 func _is_hdr_supported(window: Window) -> bool:
 	return DisplayServer.has_feature(DisplayServer.FEATURE_HDR) \
@@ -14,12 +16,39 @@ func _on_visibility_changed() -> void:
 		process_mode = Node.PROCESS_MODE_DISABLED
 
 
+func _ready() -> void:
+	var window: Window = get_window()
+	var hdr_settings: ConfigFile = ConfigFile.new()
+	if hdr_settings.load(HDR_SETTINGS_FILE) == OK:
+		window.hdr_output_enabled = hdr_settings.get_value(HDR_SETTINGS_SECTION, "hdr_output_enabled", window.hdr_output_enabled)
+		window.hdr_output_auto_adjust_reference_luminance = hdr_settings.get_value(HDR_SETTINGS_SECTION, "hdr_output_auto_adjust_reference_luminance", window.hdr_output_auto_adjust_reference_luminance)
+		if !window.hdr_output_auto_adjust_reference_luminance:
+			window.hdr_output_reference_luminance = hdr_settings.get_value(HDR_SETTINGS_SECTION, "hdr_output_reference_luminance", window.hdr_output_reference_luminance)
+		window.hdr_output_auto_adjust_max_luminance = hdr_settings.get_value(HDR_SETTINGS_SECTION, "hdr_output_auto_adjust_max_luminance", window.hdr_output_auto_adjust_max_luminance)
+		if !window.hdr_output_auto_adjust_max_luminance:
+			window.hdr_output_max_luminance = hdr_settings.get_value(HDR_SETTINGS_SECTION, "hdr_output_max_luminance", window.hdr_output_max_luminance)
+
+
+func save_settings() -> void:
+	var window: Window = get_window()
+	var hdr_settings: ConfigFile = ConfigFile.new()
+	hdr_settings.set_value(HDR_SETTINGS_SECTION, "hdr_output_enabled", window.hdr_output_enabled)
+	if window.hdr_output_enabled:
+		hdr_settings.set_value(HDR_SETTINGS_SECTION, "hdr_output_auto_adjust_reference_luminance", window.hdr_output_auto_adjust_reference_luminance)
+		if !window.hdr_output_auto_adjust_reference_luminance:
+			hdr_settings.set_value(HDR_SETTINGS_SECTION, "hdr_output_reference_luminance", window.hdr_output_reference_luminance)
+		hdr_settings.set_value(HDR_SETTINGS_SECTION, "hdr_output_auto_adjust_max_luminance", window.hdr_output_auto_adjust_max_luminance)
+		if !window.hdr_output_auto_adjust_max_luminance:
+			hdr_settings.set_value(HDR_SETTINGS_SECTION, "hdr_output_max_luminance", window.hdr_output_max_luminance)
+	hdr_settings.save(HDR_SETTINGS_FILE)
+
+
 func _process(_delta: float) -> void:
 	var window: Window = get_window()
 	var hdr_supported := _is_hdr_supported(window)
 	%HDRCheckButton.disabled = !hdr_supported
 
-	var hdr_output_enabled: bool = window.hdr_output_enabled;
+	var hdr_output_enabled: bool = window.hdr_output_enabled
 	if %HDRCheckButton.button_pressed != hdr_output_enabled:
 		%HDRCheckButton.button_pressed = hdr_output_enabled
 	%HDROptions.visible = hdr_output_enabled && hdr_supported
@@ -32,8 +61,8 @@ func _process(_delta: float) -> void:
 	$%MaxLumSlider.min_value = window.hdr_output_reference_luminance
 	%MaxLumLabel.text = "%d" % window.hdr_output_max_luminance
 	
-	%ResetBrightness.disabled = get_window().hdr_output_auto_adjust_reference_luminance
-	%ResetMaxLum.disabled = get_window().hdr_output_auto_adjust_max_luminance
+	%ResetBrightness.disabled = window.hdr_output_auto_adjust_reference_luminance
+	%ResetMaxLum.disabled = window.hdr_output_auto_adjust_max_luminance
 
 
 func _on_hdr_check_button_toggled(toggled_on: bool) -> void:

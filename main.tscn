@@ -27,15 +27,6 @@ shader_parameter/colour = Vector3(1, 1, 1)
 shader = ExtResource("1_ig7tw")
 shader_parameter/colour = Vector3(1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
-shader = ExtResource("4_1bvp3")
-shader_parameter/log2_min = -18.0
-shader_parameter/log2_max = 18.0
-shader_parameter/clip = false
-shader_parameter/clip_value = 10.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
-
 [sub_resource type="Shader" id="Shader_7mycd"]
 code = "shader_type canvas_item;
 render_mode unshaded;
@@ -87,6 +78,15 @@ shader_parameter/colour = Vector3(0, -10, 1)
 shader = SubResource("Shader_7mycd")
 shader_parameter/colour = Vector3(-100, -100, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+shader = ExtResource("4_1bvp3")
+shader_parameter/log2_min = -18.0
+shader_parameter/log2_max = 18.0
+shader_parameter/clip = false
+shader_parameter/clip_value = 10.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -101,7 +101,7 @@ environment = SubResource("Environment_ig7tw")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 258.0
-offset_bottom = 207.0
+offset_bottom = 237.0
 color = Color(0.21710123, 0.21710123, 0.21710123, 1)
 
 [node name="InGameHDRSettings" parent="ColorRect" instance=ExtResource("3_h2yge")]
@@ -113,9 +113,9 @@ offset_bottom = 189.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
-offset_top = 217.0
+offset_top = 248.0
 offset_right = 258.0
-offset_bottom = 292.0
+offset_bottom = 323.0
 color = Color(0.21568628, 0.21568628, 0.21568628, 1)
 
 [node name="DeveloperSettings" type="VBoxContainer" parent="ColorRect2"]
@@ -138,21 +138,21 @@ text = "Prefer high precision"
 [node name="BlackWhiteMax" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 49.0
-offset_top = 301.0
-offset_right = 209.0
-offset_bottom = 352.0
+offset_top = 332.0
+offset_right = 235.945
+offset_bottom = 383.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="BlackWhiteMax"]
 material = SubResource("ShaderMaterial_0xm2m")
-position = Vector2(30, 35)
-scale = Vector2(50, 20)
+position = Vector2(4.7683716e-07, 35)
+scale = Vector2(80, 20)
 mesh = SubResource("QuadMesh_h2yge")
 
 [node name="Label" type="Label" parent="BlackWhiteMax"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = -40.0
 offset_top = 2.0
-offset_right = 55.0
+offset_right = 40.0
 offset_bottom = 25.0
 text = "Black"
 horizontal_alignment = 1
@@ -160,33 +160,68 @@ horizontal_alignment = 1
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="BlackWhiteMax"]
 material = SubResource("ShaderMaterial_h2yge")
 position = Vector2(79.99988, 35.000008)
-scale = Vector2(50, 20)
+scale = Vector2(80, 20)
 mesh = SubResource("QuadMesh_h2yge")
 
 [node name="Label2" type="Label" parent="BlackWhiteMax"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 40.0
 offset_top = 2.0
-offset_right = 105.0
+offset_right = 120.0
 offset_bottom = 25.0
 text = "White"
 horizontal_alignment = 1
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="BlackWhiteMax"]
 material = SubResource("ShaderMaterial_1bvp3")
-position = Vector2(130.00012, 35)
-scale = Vector2(50, 20)
+position = Vector2(160, 35)
+scale = Vector2(80, 20)
 mesh = SubResource("QuadMesh_h2yge")
 script = ExtResource("2_0xm2m")
 
 [node name="Label3" type="Label" parent="BlackWhiteMax"]
 layout_mode = 0
-offset_left = 105.0
+offset_left = 120.0
 offset_top = 2.0
-offset_right = 155.0
+offset_right = 200.0
 offset_bottom = 25.0
 text = "Max"
 horizontal_alignment = 1
+
+[node name="sRGBPrimaryRed" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(133, 423)
+
+[node name="sRGBPrimaryGreen" parent="." instance=ExtResource("7_272bh")]
+material = SubResource("ShaderMaterial_5vw27")
+position = Vector2(133, 493)
+
+[node name="Negative" parent="sRGBPrimaryGreen" index="0"]
+material = SubResource("ShaderMaterial_kek77")
+
+[node name="Negative" parent="sRGBPrimaryGreen/Negative" index="0"]
+material = SubResource("ShaderMaterial_4c57u")
+
+[node name="Negative2" parent="sRGBPrimaryGreen" index="1"]
+material = SubResource("ShaderMaterial_efxa6")
+
+[node name="Negative" parent="sRGBPrimaryGreen/Negative2" index="0"]
+material = SubResource("ShaderMaterial_dg77c")
+
+[node name="sRGBPrimaryBlue" parent="." instance=ExtResource("7_272bh")]
+material = SubResource("ShaderMaterial_272bh")
+position = Vector2(133, 563)
+
+[node name="Negative" parent="sRGBPrimaryBlue" index="0"]
+material = SubResource("ShaderMaterial_ycdy4")
+
+[node name="Negative" parent="sRGBPrimaryBlue/Negative" index="0"]
+material = SubResource("ShaderMaterial_w48qg")
+
+[node name="Negative2" parent="sRGBPrimaryBlue" index="1"]
+material = SubResource("ShaderMaterial_vivmo")
+
+[node name="Negative" parent="sRGBPrimaryBlue/Negative2" index="0"]
+material = SubResource("ShaderMaterial_2cqfq")
 
 [node name="ColourSweep" type="Control" parent="."]
 anchors_preset = 0
@@ -203,7 +238,7 @@ color = Color(0.21568628, 0.21568628, 0.21568628, 1)
 [node name="ColourSweepMesh" type="MeshInstance2D" parent="ColourSweep"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_lquwl")
-position = Vector2(828, 327)
+position = Vector2(827, 327)
 scale = Vector2(1644, -576)
 mesh = SubResource("QuadMesh_7mycd")
 
@@ -270,41 +305,6 @@ offset_right = 1644.0
 offset_bottom = 33.0
 text = "+18.00 stops (linear 262144.00000)"
 horizontal_alignment = 2
-
-[node name="sRGBPrimaryRed" parent="." instance=ExtResource("7_272bh")]
-position = Vector2(133, 392)
-
-[node name="sRGBPrimaryGreen" parent="." instance=ExtResource("7_272bh")]
-material = SubResource("ShaderMaterial_5vw27")
-position = Vector2(133, 462)
-
-[node name="Negative" parent="sRGBPrimaryGreen" index="0"]
-material = SubResource("ShaderMaterial_kek77")
-
-[node name="Negative" parent="sRGBPrimaryGreen/Negative" index="0"]
-material = SubResource("ShaderMaterial_4c57u")
-
-[node name="Negative2" parent="sRGBPrimaryGreen" index="1"]
-material = SubResource("ShaderMaterial_efxa6")
-
-[node name="Negative" parent="sRGBPrimaryGreen/Negative2" index="0"]
-material = SubResource("ShaderMaterial_dg77c")
-
-[node name="sRGBPrimaryBlue" parent="." instance=ExtResource("7_272bh")]
-material = SubResource("ShaderMaterial_272bh")
-position = Vector2(133, 532)
-
-[node name="Negative" parent="sRGBPrimaryBlue" index="0"]
-material = SubResource("ShaderMaterial_ycdy4")
-
-[node name="Negative" parent="sRGBPrimaryBlue/Negative" index="0"]
-material = SubResource("ShaderMaterial_w48qg")
-
-[node name="Negative2" parent="sRGBPrimaryBlue" index="1"]
-material = SubResource("ShaderMaterial_vivmo")
-
-[node name="Negative" parent="sRGBPrimaryBlue/Negative2" index="0"]
-material = SubResource("ShaderMaterial_2cqfq")
 
 [connection signal="toggled" from="ColorRect2/DeveloperSettings/PreferHighPrecision" to="ColorRect2/DeveloperSettings" method="_on_prefer_high_precision_toggled"]
 [connection signal="toggled" from="ColourSweep/HBoxContainer/ClipToMax" to="ColourSweep" method="_on_clip_to_max_toggled"]

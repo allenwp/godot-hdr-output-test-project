@@ -43,6 +43,12 @@ func save_settings() -> void:
 	hdr_settings.save(HDR_SETTINGS_FILE)
 
 
+func erase_settings() -> void:
+	var hdr_settings: ConfigFile = ConfigFile.new()
+	if hdr_settings.load(HDR_SETTINGS_FILE) == OK:
+		hdr_settings.erase_section(HDR_SETTINGS_SECTION)
+		hdr_settings.save(HDR_SETTINGS_FILE)
+
 func _process(_delta: float) -> void:
 	var window: Window = get_window()
 	var hdr_supported := _is_hdr_supported(window)

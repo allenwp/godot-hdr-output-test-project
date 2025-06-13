@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 	text += " - SDR White Level: %.2f\n" % DisplayServer.screen_get_sdr_white_level(screen)
 	
 	text += "FORMAT INFO:\n"
-	text += " - Color Format: %s\n" % format_info
-	text += " - Color Space: %s" % color_space_info
+	text += " - %s\n" % format_info
+	text += " - %s" % color_space_info
 	
 	

@@ -2,7 +2,7 @@ shader_type canvas_item;
 render_mode unshaded;
 
 uniform float log2_min = -18.0;
-uniform float log2_max = 18.0;
+uniform float log2_max = 5.0;
 uniform bool clip = false;
 uniform float clip_value = 10;
 

@@ -82,7 +82,7 @@ shader_parameter/colour = Vector3(-100, -100, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
 shader = ExtResource("4_1bvp3")
 shader_parameter/log2_min = -18.0
-shader_parameter/log2_max = 18.0
+shader_parameter/log2_max = 5.0
 shader_parameter/clip = false
 shader_parameter/clip_value = 10.0
 
@@ -97,15 +97,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+unique_name_in_owner = true
 environment = SubResource("Environment_ig7tw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 308.595
+offset_bottom = 723.0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(258, 237)
+custom_minimum_size = Vector2(100, 401.315)
 layout_mode = 2
 color = Color(0.21710123, 0.21710123, 0.21710123, 1)
 
@@ -113,8 +114,8 @@ color = Color(0.21710123, 0.21710123, 0.21710123, 1)
 layout_mode = 0
 offset_left = 8.0
 offset_top = 7.0
-offset_right = 245.0
-offset_bottom = 189.0
+offset_right = 299.0
+offset_bottom = 389.0
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(258, 109)
@@ -142,17 +143,38 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Prefer high precision"
 
-[node name="BlackWhiteMax" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(261, 51)
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(258, 109)
 layout_mode = 2
+color = Color(0.21568628, 0.21568628, 0.21568628, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="VBoxContainer/BlackWhiteMax"]
+[node name="Environment Properties" type="VBoxContainer" parent="VBoxContainer/ColorRect3"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 218.0
+offset_bottom = 66.0
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect3/Environment Properties"]
+layout_mode = 2
+text = "Environment Properties:"
+
+[node name="BlackWhiteMax" type="Control" parent="."]
+custom_minimum_size = Vector2(261, 51)
+anchors_preset = 0
+offset_left = 874.0
+offset_top = 999.0
+offset_right = 1135.0
+offset_bottom = 1050.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="BlackWhiteMax"]
 material = SubResource("ShaderMaterial_0xm2m")
 position = Vector2(49, 35)
 scale = Vector2(80, 20)
 mesh = SubResource("QuadMesh_h2yge")
 
-[node name="Label" type="Label" parent="VBoxContainer/BlackWhiteMax"]
+[node name="Label" type="Label" parent="BlackWhiteMax"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 2.0
@@ -161,13 +183,13 @@ offset_bottom = 25.0
 text = "Black"
 horizontal_alignment = 1
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="VBoxContainer/BlackWhiteMax"]
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="BlackWhiteMax"]
 material = SubResource("ShaderMaterial_h2yge")
 position = Vector2(128.99988, 35)
 scale = Vector2(80, 20)
 mesh = SubResource("QuadMesh_h2yge")
 
-[node name="Label2" type="Label" parent="VBoxContainer/BlackWhiteMax"]
+[node name="Label2" type="Label" parent="BlackWhiteMax"]
 layout_mode = 0
 offset_left = 89.0
 offset_top = 2.0
@@ -176,14 +198,14 @@ offset_bottom = 25.0
 text = "White"
 horizontal_alignment = 1
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="VBoxContainer/BlackWhiteMax"]
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="BlackWhiteMax"]
 material = SubResource("ShaderMaterial_1bvp3")
 position = Vector2(209, 35)
 scale = Vector2(80, 20)
 mesh = SubResource("QuadMesh_h2yge")
 script = ExtResource("2_0xm2m")
 
-[node name="Label3" type="Label" parent="VBoxContainer/BlackWhiteMax"]
+[node name="Label3" type="Label" parent="BlackWhiteMax"]
 layout_mode = 0
 offset_left = 169.0
 offset_top = 2.0
@@ -192,43 +214,46 @@ offset_bottom = 25.0
 text = "Max"
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(100, 214.21)
-layout_mode = 2
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1128.0
+offset_top = 1002.0
+offset_right = 1128.0
+offset_bottom = 1002.0
 
-[node name="sRGBPrimaryRed" parent="VBoxContainer/Control" instance=ExtResource("7_272bh")]
+[node name="sRGBPrimaryRed" parent="Control" instance=ExtResource("7_272bh")]
 position = Vector2(133, 34)
 
-[node name="sRGBPrimaryGreen" parent="VBoxContainer/Control" instance=ExtResource("7_272bh")]
+[node name="sRGBPrimaryGreen" parent="Control" instance=ExtResource("7_272bh")]
 material = SubResource("ShaderMaterial_5vw27")
-position = Vector2(133, 104)
+position = Vector2(392, 34)
 
-[node name="Negative" parent="VBoxContainer/Control/sRGBPrimaryGreen" index="0"]
+[node name="Negative" parent="Control/sRGBPrimaryGreen" index="0"]
 material = SubResource("ShaderMaterial_kek77")
 
-[node name="Negative" parent="VBoxContainer/Control/sRGBPrimaryGreen/Negative" index="0"]
+[node name="Negative" parent="Control/sRGBPrimaryGreen/Negative" index="0"]
 material = SubResource("ShaderMaterial_4c57u")
 
-[node name="Negative2" parent="VBoxContainer/Control/sRGBPrimaryGreen" index="1"]
+[node name="Negative2" parent="Control/sRGBPrimaryGreen" index="1"]
 material = SubResource("ShaderMaterial_efxa6")
 
-[node name="Negative" parent="VBoxContainer/Control/sRGBPrimaryGreen/Negative2" index="0"]
+[node name="Negative" parent="Control/sRGBPrimaryGreen/Negative2" index="0"]
 material = SubResource("ShaderMaterial_dg77c")
 
-[node name="sRGBPrimaryBlue" parent="VBoxContainer/Control" instance=ExtResource("7_272bh")]
+[node name="sRGBPrimaryBlue" parent="Control" instance=ExtResource("7_272bh")]
 material = SubResource("ShaderMaterial_272bh")
-position = Vector2(133, 174)
+position = Vector2(651, 34)
 
-[node name="Negative" parent="VBoxContainer/Control/sRGBPrimaryBlue" index="0"]
+[node name="Negative" parent="Control/sRGBPrimaryBlue" index="0"]
 material = SubResource("ShaderMaterial_ycdy4")
 
-[node name="Negative" parent="VBoxContainer/Control/sRGBPrimaryBlue/Negative" index="0"]
+[node name="Negative" parent="Control/sRGBPrimaryBlue/Negative" index="0"]
 material = SubResource("ShaderMaterial_w48qg")
 
-[node name="Negative2" parent="VBoxContainer/Control/sRGBPrimaryBlue" index="1"]
+[node name="Negative2" parent="Control/sRGBPrimaryBlue" index="1"]
 material = SubResource("ShaderMaterial_vivmo")
 
-[node name="Negative" parent="VBoxContainer/Control/sRGBPrimaryBlue/Negative2" index="0"]
+[node name="Negative" parent="Control/sRGBPrimaryBlue/Negative2" index="0"]
 material = SubResource("ShaderMaterial_2cqfq")
 
 [node name="ColourSweep" type="Control" parent="."]
@@ -239,21 +264,23 @@ script = ExtResource("4_lquwl")
 
 [node name="ColorRect" type="ColorRect" parent="ColourSweep"]
 layout_mode = 0
+offset_left = 55.0
 offset_right = 1656.0
-offset_bottom = 622.0
-color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+offset_bottom = 992.0
+color = Color(0, 0, 0, 1)
 
 [node name="ColourSweepMesh" type="MeshInstance2D" parent="ColourSweep"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_lquwl")
-position = Vector2(827, 327)
-scale = Vector2(1644, -576)
+position = Vector2(858.5, 512.5)
+scale = Vector2(1581, -947.00006)
 mesh = SubResource("QuadMesh_7mycd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColourSweep"]
 layout_mode = 0
+offset_left = 68.0
 offset_top = 2.0
-offset_right = 1656.0
+offset_right = 1649.0
 offset_bottom = 42.0
 alignment = 1
 
@@ -290,7 +317,7 @@ size_flags_vertical = 4
 min_value = -25.0
 max_value = 25.0
 step = 0.05000000000291038
-value = 18.00000000250293
+value = 5.00000000174623
 
 [node name="MinExposureLabel2" type="Label" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2
@@ -298,20 +325,20 @@ layout_mode = 2
 [node name="SweepMinLabel" type="Label" parent="ColourSweep"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 12.0
+offset_left = 68.0
 offset_top = 10.0
-offset_right = 309.0
+offset_right = 365.0
 offset_bottom = 33.0
 text = "-18.00 stops (linear 0.00000)"
 
 [node name="SweepMaxLabel" type="Label" parent="ColourSweep"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1320.0
+offset_left = 1325.0
 offset_top = 10.0
-offset_right = 1644.0
+offset_right = 1649.0
 offset_bottom = 33.0
-text = "+18.00 stops (linear 262144.00000)"
+text = "+5.00 stops (linear 32.00000)"
 horizontal_alignment = 2
 
 [node name="DebugInfo" type="Label" parent="."]
@@ -332,8 +359,8 @@ SCREEN INFO:
  - Max Full Frame Luminance: 270.00
  - SDR White Level: 80.00
 FORMAT INFO:
- - Color Format: DATA_FORMAT_B8G8R8A8_UNORM
- - Color Space: COLOR_SPACE_SRGB_NONLINEAR"
+ - DATA_FORMAT_B8G8R8A8_UNORM
+ - COLOR_SPACE_SRGB_NONLINEAR"
 vertical_alignment = 2
 script = ExtResource("8_5vw27")
 
@@ -343,5 +370,5 @@ script = ExtResource("8_5vw27")
 [connection signal="value_changed" from="ColourSweep/HBoxContainer/MinHSlider" to="ColourSweep" method="_on_min_h_slider_value_changed"]
 [connection signal="value_changed" from="ColourSweep/HBoxContainer/MaxHSlider" to="ColourSweep" method="_on_max_h_slider_value_changed"]
 
-[editable path="VBoxContainer/Control/sRGBPrimaryGreen"]
-[editable path="VBoxContainer/Control/sRGBPrimaryBlue"]
+[editable path="Control/sRGBPrimaryGreen"]
+[editable path="Control/sRGBPrimaryBlue"]

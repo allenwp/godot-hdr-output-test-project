@@ -1,10 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://jnc4cr2mhg00"]
+[gd_scene load_steps=7 format=3 uid="uid://jnc4cr2mhg00"]
 
 [ext_resource type="Script" uid="uid://dhrj6aw08a5o0" path="res://in_game_hdr_settings.gd" id="1_4pceo"]
+[ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://colour.gdshader" id="2_bec2s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1yfns"]
+shader = ExtResource("2_bec2s")
+shader_parameter/colour = Vector3(1, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4pceo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aew60"]
+shader = ExtResource("2_bec2s")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qn52"]
+shader = ExtResource("2_bec2s")
+shader_parameter/colour = Vector3(0, 0, 0)
 
 [node name="InGameHDRSettings" type="VBoxContainer"]
 offset_right = 237.0
-offset_bottom = 227.0
+offset_bottom = 289.0
 script = ExtResource("1_4pceo")
 
 [node name="Label" type="Label" parent="."]
@@ -47,7 +62,7 @@ layout_mode = 2
 
 [node name="BrightnessSlider" type="HSlider" parent="HDROptions/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(204, 0)
 layout_mode = 2
 size_flags_vertical = 1
 min_value = 10.0
@@ -80,7 +95,7 @@ layout_mode = 2
 
 [node name="MaxLumSlider" type="HSlider" parent="HDROptions/VBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(204, 0)
 layout_mode = 2
 size_flags_vertical = 1
 min_value = 200.0
@@ -93,6 +108,42 @@ rounded = true
 unique_name_in_owner = true
 layout_mode = 2
 text = "Reset"
+
+[node name="Control" type="Control" parent="HDROptions/VBoxContainer"]
+custom_minimum_size = Vector2(0, 108.885)
+layout_mode = 2
+
+[node name="MaxLumAdjustBacking" type="MeshInstance2D" parent="HDROptions/VBoxContainer/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1yfns")
+position = Vector2(58, 54)
+scale = Vector2(100, 100)
+mesh = SubResource("QuadMesh_4pceo")
+
+[node name="MaxLumAdjustBelow" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_aew60")
+position = Vector2(58, 54)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustBacking2" type="MeshInstance2D" parent="HDROptions/VBoxContainer/Control"]
+material = SubResource("ShaderMaterial_1yfns")
+position = Vector2(191, 54.000015)
+scale = Vector2(100, 100)
+mesh = SubResource("QuadMesh_4pceo")
+
+[node name="MaxLumAdjustAbove" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_5qn52")
+position = Vector2(191, 54)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="Label2" type="Label" parent="HDROptions/VBoxContainer"]
+layout_mode = 2
+text = "Adjust Max luminance to make
+the triangle on the right invisible."
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2

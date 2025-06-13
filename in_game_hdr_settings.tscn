@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jnc4cr2mhg00"]
+[gd_scene load_steps=11 format=3 uid="uid://jnc4cr2mhg00"]
 
 [ext_resource type="Script" uid="uid://dhrj6aw08a5o0" path="res://in_game_hdr_settings.gd" id="1_4pceo"]
 [ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://colour.gdshader" id="2_bec2s"]
@@ -9,11 +9,27 @@ shader_parameter/colour = Vector3(1, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_4pceo"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bec2s"]
+shader = ExtResource("2_bec2s")
+shader_parameter/colour = Vector3(0, 0, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aew60"]
 shader = ExtResource("2_bec2s")
 shader_parameter/colour = Vector3(0, 0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5qn52"]
+shader = ExtResource("2_bec2s")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5x653"]
+shader = ExtResource("2_bec2s")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4628"]
+shader = ExtResource("2_bec2s")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wc80b"]
 shader = ExtResource("2_bec2s")
 shader_parameter/colour = Vector3(0, 0, 0)
 
@@ -122,9 +138,9 @@ mesh = SubResource("QuadMesh_4pceo")
 
 [node name="MaxLumAdjustBelow" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_aew60")
-position = Vector2(58, 54)
-scale = Vector2(50, 50)
+material = SubResource("ShaderMaterial_bec2s")
+position = Vector2(58, 21.5)
+scale = Vector2(30, 30)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
 
 [node name="MaxLumAdjustBacking2" type="MeshInstance2D" parent="HDROptions/VBoxContainer/Control"]
@@ -135,15 +151,44 @@ mesh = SubResource("QuadMesh_4pceo")
 
 [node name="MaxLumAdjustAbove" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_aew60")
+position = Vector2(191.00002, 21.5)
+scale = Vector2(30, 30)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustBelow2" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_5qn52")
-position = Vector2(191, 54)
-scale = Vector2(50, 50)
+position = Vector2(58, 54.499985)
+scale = Vector2(30, 30)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustAbove2" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_5x653")
+position = Vector2(191.00002, 54.499985)
+scale = Vector2(30, 30)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustBelow3" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_i4628")
+position = Vector2(58, 87.499985)
+scale = Vector2(30, 30)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustAbove3" type="Polygon2D" parent="HDROptions/VBoxContainer/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_wc80b")
+position = Vector2(191.00002, 87.499985)
+scale = Vector2(30, 30)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
 
 [node name="Label2" type="Label" parent="HDROptions/VBoxContainer"]
 layout_mode = 2
 text = "Adjust Max luminance to make
-the triangle on the right invisible."
+the three triangles on the left
+visible and the right invisible."
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2

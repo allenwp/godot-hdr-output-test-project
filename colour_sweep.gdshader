@@ -8,7 +8,7 @@ uniform float clip_value = 10;
 
 void fragment() {
 	vec3 color;
-	float top_bar = 0.02;
+	float top_bar = 0.05;
 	float log2_value = UV.x * (log2_max - log2_min) + log2_min;
 	float scale = pow(2.0, log2_value);
 
@@ -61,6 +61,31 @@ void fragment() {
 	else
 	{
 		color = vec3(1.0) * scale;
+		if (UV.y > 0.03) {
+			float tick_col = scale > 0.184 ? 0.0 : 1.0;
+			while (scale >= 1.0) {
+				scale /= 10.0;
+			}
+			while (scale < 0.1) {
+				scale *= 10.0;
+			}
+			float tick_threshold = scale * 0.02;
+			if ((scale > 1.0 - tick_threshold && scale < 1.0 + tick_threshold)
+				|| (scale > 0.0 - tick_threshold && scale < 0.0 + tick_threshold)
+				|| (scale > 0.1 - tick_threshold && scale < 0.1 + tick_threshold)) {
+				color = vec3(tick_col);
+			} else if (UV.y > 0.04
+				&& ((scale > 0.9 - tick_threshold && scale < 0.9 + tick_threshold)
+				|| (scale > 0.8 - tick_threshold && scale < 0.8 + tick_threshold)
+				|| (scale > 0.7 - tick_threshold && scale < 0.7 + tick_threshold)
+				|| (scale > 0.6 - tick_threshold && scale < 0.6 + tick_threshold)
+				|| (scale > 0.5 - tick_threshold && scale < 0.5 + tick_threshold)
+				|| (scale > 0.4 - tick_threshold && scale < 0.4 + tick_threshold)
+				|| (scale > 0.3 - tick_threshold && scale < 0.3 + tick_threshold)
+				|| (scale > 0.2 - tick_threshold && scale < 0.2 + tick_threshold))) {
+				color = vec3(tick_col);
+			}
+		}
 	}
 	
 	if (clip) {

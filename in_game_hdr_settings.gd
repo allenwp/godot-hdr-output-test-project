@@ -59,12 +59,12 @@ func _process(_delta: float) -> void:
 		%HDRCheckButton.button_pressed = hdr_output_enabled
 	%HDROptions.visible = hdr_output_enabled && hdr_supported
 	
-	%BrightnessSlider.value = window.hdr_output_reference_luminance
 	%BrightnessSlider.max_value = window.hdr_output_max_luminance
+	%BrightnessSlider.value = window.hdr_output_reference_luminance
 	%BrightnessLabel.text = "%0.0f" % window.hdr_output_reference_luminance
 	
-	%MaxLumSlider.value = window.hdr_output_max_luminance
 	$%MaxLumSlider.min_value = window.hdr_output_reference_luminance
+	%MaxLumSlider.value = window.hdr_output_max_luminance
 	%MaxLumLabel.text = "%0.0f" % window.hdr_output_max_luminance
 	
 	%ResetBrightness.disabled = window.hdr_output_auto_adjust_reference_luminance
@@ -105,7 +105,7 @@ func _process(_delta: float) -> void:
 	max_adjust_material_value = pow(2.0, (log(1.0) / log(2.0)) - adjustment_step_1)
 	sm = %ExampleMaxLumAdjustBelow2.material as ShaderMaterial
 	sm.set_shader_parameter("colour", Vector3(max_adjust_material_value, max_adjust_material_value, max_adjust_material_value))
-	
+
 
 func _on_hdr_check_button_toggled(toggled_on: bool) -> void:
 	# Request HDR output to the display.

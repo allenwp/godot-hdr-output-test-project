@@ -1,6 +1,6 @@
 # Godot HDR Output Test Project
 
-![HDR video demonstration of the Godot HDR Output Test Project](./github_assets/godot-hdr-output-test-project.mp4)
+https://github.com/user-attachments/assets/297c2686-d939-4571-9bd0-e5808906d5ee
 
 ## Overview
 

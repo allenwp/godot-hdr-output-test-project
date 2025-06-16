@@ -95,8 +95,9 @@ shader_parameter/colour = Vector3(-100, -100, 1)
 shader = ExtResource("4_1bvp3")
 shader_parameter/log2_min = -18.0
 shader_parameter/log2_max = 5.0
-shader_parameter/clip = false
-shader_parameter/clip_value = 10.0
+shader_parameter/clip_to_max = false
+shader_parameter/max_value = 10.0
+shader_parameter/clip_in_bt2020 = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
 
@@ -114,32 +115,32 @@ environment = SubResource("Environment_ig7tw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 308.595
-offset_bottom = 723.0
+offset_right = 320.0
+offset_bottom = 730.0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(100, 424)
 layout_mode = 2
+size_flags_vertical = 3
 color = Color(0.21710123, 0.21710123, 0.21710123, 1)
 
 [node name="InGameHDRSettings" parent="VBoxContainer/ColorRect" instance=ExtResource("3_h2yge")]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 5.0
 offset_top = 7.0
-offset_right = 299.0
-offset_bottom = 389.0
+offset_right = 315.0
+offset_bottom = 631.0
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(258, 109)
+custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 color = Color(0.21568628, 0.21568628, 0.21568628, 1)
 
 [node name="DeveloperSettings" type="VBoxContainer" parent="VBoxContainer/ColorRect2"]
 layout_mode = 0
-offset_left = 9.0
+offset_left = 5.0
 offset_top = 8.0
-offset_right = 218.0
-offset_bottom = 66.0
+offset_right = 315.0
+offset_bottom = 101.0
 script = ExtResource("2_7mycd")
 
 [node name="Label" type="Label" parent="VBoxContainer/ColorRect2/DeveloperSettings"]
@@ -154,23 +155,6 @@ text = "Erase player settings"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Prefer high precision"
-
-[node name="ColorRect3" type="ColorRect" parent="VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(258, 109)
-layout_mode = 2
-color = Color(0.21568628, 0.21568628, 0.21568628, 1)
-
-[node name="Environment Properties" type="VBoxContainer" parent="VBoxContainer/ColorRect3"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 8.0
-offset_right = 218.0
-offset_bottom = 66.0
-
-[node name="Label" type="Label" parent="VBoxContainer/ColorRect3/Environment Properties"]
-layout_mode = 2
-text = "Environment Properties:"
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
@@ -337,7 +321,7 @@ script = ExtResource("4_lquwl")
 
 [node name="ColorRect" type="ColorRect" parent="ColourSweep"]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 56.0
 offset_right = 1656.0
 offset_bottom = 992.0
 color = Color(0, 0, 0, 1)
@@ -371,7 +355,7 @@ custom_minimum_size = Vector2(315, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = -25.0
-max_value = 25.0
+max_value = 10.0
 step = 0.05000000000291038
 value = -17.999999999592546
 
@@ -388,7 +372,7 @@ custom_minimum_size = Vector2(315, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = -25.0
-max_value = 25.0
+max_value = 10.0
 step = 0.05000000000291038
 value = 5.00000000174623
 
@@ -402,7 +386,7 @@ offset_left = 68.0
 offset_top = 10.0
 offset_right = 365.0
 offset_bottom = 33.0
-text = "-18.00 stops (linear 0.00000)"
+text = "-18.00 (linear 0.00000, 0 nits)"
 
 [node name="SweepMaxLabel" type="Label" parent="ColourSweep"]
 unique_name_in_owner = true
@@ -411,7 +395,7 @@ offset_left = 1325.0
 offset_top = 10.0
 offset_right = 1649.0
 offset_bottom = 33.0
-text = "+5.00 stops (linear 32.00000)"
+text = "+5.00 (linear 32.00000, 13824 nits)"
 horizontal_alignment = 2
 
 [node name="DebugInfo" type="Label" parent="."]

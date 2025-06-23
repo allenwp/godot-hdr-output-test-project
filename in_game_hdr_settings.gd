@@ -6,7 +6,7 @@ const HDR_SETTINGS_SECTION = "HDR"
 func _is_hdr_supported(window: Window) -> bool:
 	return DisplayServer.has_feature(DisplayServer.FEATURE_HDR) \
 		&& RenderingServer.get_rendering_device().has_feature(RenderingDevice.SUPPORTS_HDR_OUTPUT) \
-		&& DisplayServer.window_is_hdr_output_supported(window.get_window_id())
+		&& window.is_hdr_output_supported()
 
 
 func _on_visibility_changed() -> void:

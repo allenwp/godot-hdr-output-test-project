@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 		_:
 			color_space_info = "UNKNOWN";
 	
-	text = "DEBUG INFO:\n"
+	text = ""
 	text += " - DisplayServer Supports HDR: %s\n" % DisplayServer.has_feature(DisplayServer.FEATURE_HDR)
 	text += " - RenderingDevice Supports HDR: %s\n" % RenderingServer.get_rendering_device().has_feature(RenderingDevice.SUPPORTS_HDR_OUTPUT)
 	text += " - Screen Supports HDR: %s\n" % DisplayServer.screen_is_hdr_supported(screen)
@@ -45,9 +45,9 @@ func _process(_delta: float) -> void:
 	text += " - Max Luminance: %.2f\n" % DisplayServer.screen_get_max_luminance(screen)
 	text += " - Max Full Frame Luminance: %.2f\n" % DisplayServer.screen_get_max_full_frame_luminance(screen)
 	text += " - SDR White Level: %.2f\n" % DisplayServer.screen_get_sdr_white_level(screen)
+	text += " - Output Max Value: %.2f\n" % window.get_hdr_output_max_value()
 	
 	text += "FORMAT INFO:\n"
 	text += " - %s\n" % format_info
 	text += " - %s" % color_space_info
-	
 	

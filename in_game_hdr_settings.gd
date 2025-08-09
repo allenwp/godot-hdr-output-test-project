@@ -3,11 +3,6 @@ extends Control
 const HDR_SETTINGS_FILE = "user://hdr_settings.cfg"
 const HDR_SETTINGS_SECTION = "HDR"
 
-func _is_hdr_supported(window: Window) -> bool:
-	return DisplayServer.has_feature(DisplayServer.FEATURE_HDR) \
-		&& RenderingServer.get_rendering_device().has_feature(RenderingDevice.SUPPORTS_HDR_OUTPUT) \
-		&& window.is_hdr_output_supported()
-
 
 func _on_visibility_changed() -> void:
 	if visible:
@@ -51,7 +46,7 @@ func erase_settings() -> void:
 
 func _process(_delta: float) -> void:
 	var window: Window = get_window()
-	var hdr_supported := _is_hdr_supported(window)
+	var hdr_supported := window.is_hdr_output_supported()
 	%HDRCheckButton.disabled = !hdr_supported
 
 	var hdr_output_enabled: bool = window.hdr_output_enabled

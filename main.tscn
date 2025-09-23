@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://colour.gdshader" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://colour_value_scripts/max.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://c74bp7pq3jbkx" path="res://developer_settings.gd" id="2_7mycd"]
-[ext_resource type="PackedScene" uid="uid://jnc4cr2mhg00" path="res://in_game_hdr_settings.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://jnc4cr2mhg00" path="res://in_game_hdr_settings/in_game_hdr_settings.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://cqjmg63jbxlns" path="res://colour_sweep.gd" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://bj0d644r78h1w" path="res://max_lum_label.gd" id="5_efxa6"]

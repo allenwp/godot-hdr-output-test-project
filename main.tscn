@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cikrx8e0qde6d"]
+[gd_scene load_steps=48 format=3 uid="uid://cikrx8e0qde6d"]
 
 [ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://colour.gdshader" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://colour_value_scripts/max.gd" id="2_0xm2m"]
@@ -17,6 +17,40 @@ background_mode = 3
 ambient_light_source = 1
 reflected_light_source = 1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lswn8"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(1, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_a6jrf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuqvo"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsp4k"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq58d"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_seu75"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htxhm"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq2sk"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4k2k6"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/colour = Vector3(0, 0, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_ig7tw")
 shader_parameter/colour = Vector3(0, 0, 0)
@@ -29,43 +63,43 @@ shader_parameter/colour = Vector3(1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.338679, 1.338679, 1.338679)
+shader_parameter/colour = Vector3(12.690907, 12.690907, 12.690907)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.338679, 1.338679, 1.338679)
+shader_parameter/colour = Vector3(12.690907, 12.690907, 12.690907)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.2490317, 1.2490317, 1.2490317)
+shader_parameter/colour = Vector3(11.841035, 11.841035, 11.841035)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.1653877, 1.1653877, 1.1653877)
+shader_parameter/colour = Vector3(11.048076, 11.048076, 11.048076)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82xsv"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.014529, 1.014529, 1.014529)
+shader_parameter/colour = Vector3(9.6179085, 9.6179085, 9.6179085)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_getpj"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0.76886916, 0.76886916, 0.76886916)
+shader_parameter/colour = Vector3(7.289012, 7.289012, 7.289012)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryguw"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.4347606, 1.4347606, 1.4347606)
+shader_parameter/colour = Vector3(13.601777, 13.601777, 13.601777)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.5377383, 1.5377383, 1.5377383)
+shader_parameter/colour = Vector3(14.578024, 14.578024, 14.578024)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1u8w0"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.7663975, 1.7663975, 1.7663975)
+shader_parameter/colour = Vector3(16.745752, 16.745752, 16.745752)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(2.3307755, 2.3307755, 2.3307755)
+shader_parameter/colour = Vector3(22.096151, 22.096151, 22.096151)
 
 [sub_resource type="Shader" id="Shader_7mycd"]
 code = "shader_type canvas_item;
@@ -155,10 +189,10 @@ layout_mode = 0
 offset_left = 5.0
 offset_top = 7.0
 offset_right = 315.0
-offset_bottom = 631.0
+offset_bottom = 233.0
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 496)
 layout_mode = 2
 color = Color(0.21568628, 0.21568628, 0.21568628, 1)
 
@@ -182,6 +216,97 @@ text = "Erase player settings"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Prefer high precision"
+
+[node name="Label3" type="Label" parent="VBoxContainer/ColorRect2/DeveloperSettings"]
+layout_mode = 2
+text = "Reference monitor calibration:"
+
+[node name="Control" type="Control" parent="VBoxContainer/ColorRect2/DeveloperSettings"]
+custom_minimum_size = Vector2(0, 108.885)
+layout_mode = 2
+
+[node name="MaxLumAdjustBacking" type="MeshInstance2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lswn8")
+position = Vector2(127.49999, 54)
+scale = Vector2(238.99998, 100)
+mesh = SubResource("QuadMesh_a6jrf")
+
+[node name="MaxLumAdjustBelow2" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xuqvo")
+position = Vector2(40, 54)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustAbove2" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qsp4k")
+position = Vector2(214.99998, 53.999985)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustBelow3" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kq58d")
+position = Vector2(98, 53.999985)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="MaxLumAdjustAbove3" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_seu75")
+position = Vector2(155.99998, 53.999985)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, 0.24485302, 0.5, -0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 104.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="VBoxContainer/ColorRect2/DeveloperSettings"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Adjust Max luminance so that the triangles on the left are visible and the triangles on the right are not visible. If this is not possible, tap Reset to use the value reported by the display. Example:"
+autowrap_mode = 3
+
+[node name="Control2" type="Control" parent="VBoxContainer/ColorRect2/DeveloperSettings"]
+custom_minimum_size = Vector2(0, 108.885)
+layout_mode = 2
+
+[node name="ExampleMaxLumAdjustBacking" type="MeshInstance2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_htxhm")
+position = Vector2(127.49999, 54)
+scale = Vector2(238.99998, 100)
+mesh = SubResource("QuadMesh_a6jrf")
+
+[node name="ExampleMaxLumAdjustBelow" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_jq2sk")
+position = Vector2(40, 54)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="ExampleMaxLumAdjustBelow2" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_4k2k6")
+position = Vector2(98, 53.999985)
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 104.0
+color = Color(0, 0, 0, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -246,9 +371,9 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 text = "Max luminance
-+5.00 stops
-linear 32.00
-13824 nits"
++3.67 stops
+linear 12.69
+1015 nits"
 horizontal_alignment = 1
 script = ExtResource("5_efxa6")
 
@@ -334,7 +459,7 @@ offset_top = 5.0
 offset_right = 244.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-88, 200)
-text = "-0.10 (linear 1.25, 540 nits)"
+text = "-0.10 (linear 11.84, 947 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D2")
@@ -346,7 +471,7 @@ offset_top = 27.0
 offset_right = 244.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-88, 178)
-text = "-0.20 (linear 1.17, 503 nits)"
+text = "-0.20 (linear 11.05, 884 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D3")
@@ -358,7 +483,7 @@ offset_top = 49.0
 offset_right = 244.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-88, 156)
-text = "-0.40 (linear 1.01, 438 nits)"
+text = "-0.40 (linear 9.62, 769 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D4")
@@ -370,7 +495,7 @@ offset_top = 71.0
 offset_right = 244.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-88, 134)
-text = "-0.80 (linear 0.77, 332 nits)"
+text = "-0.80 (linear 7.29, 583 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D5")
@@ -382,7 +507,7 @@ offset_top = 5.0
 offset_right = 648.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-500, 200)
-text = "+0.10 (linear 1.43, 620 nits)"
+text = "+0.10 (linear 13.60, 1088 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D6")
 
@@ -393,7 +518,7 @@ offset_top = 27.0
 offset_right = 648.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-500, 178)
-text = "+0.20 (linear 1.54, 664 nits)"
+text = "+0.20 (linear 14.58, 1166 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D7")
 
@@ -404,7 +529,7 @@ offset_top = 49.0
 offset_right = 648.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-500, 156)
-text = "+0.40 (linear 1.77, 763 nits)"
+text = "+0.40 (linear 16.75, 1340 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D8")
 
@@ -415,7 +540,7 @@ offset_top = 71.0
 offset_right = 648.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-500, 134)
-text = "+0.80 (linear 2.33, 1007 nits)"
+text = "+0.80 (linear 22.10, 1768 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D9")
 
@@ -505,7 +630,7 @@ size_flags_vertical = 4
 min_value = -25.0
 max_value = 10.0
 step = 0.05000000000291038
-value = -17.999999999592546
+value = -17.999999999592543
 
 [node name="MinExposureLabel" type="Label" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2
@@ -522,7 +647,7 @@ size_flags_vertical = 4
 min_value = -25.0
 max_value = 10.0
 step = 0.05000000000291038
-value = 5.00000000174623
+value = 5.0000000017462405
 
 [node name="MinExposureLabel2" type="Label" parent="ColourSweep/HBoxContainer"]
 layout_mode = 2

@@ -49,8 +49,8 @@ func _process(_delta: float) -> void:
 	text += " - Min Luminance: %.2f\n" % DisplayServer.screen_get_min_luminance(screen)
 	text += " - Max Luminance: %.2f\n" % DisplayServer.screen_get_max_luminance(screen)
 	text += " - Max Full Frame Luminance: %.2f\n" % DisplayServer.screen_get_max_full_frame_luminance(screen)
-	text += " - SDR White Level: %.2f\n" % DisplayServer.screen_get_sdr_white_level(screen)
-	text += " - Output Max Value: %.2f\n" % window.get_hdr_output_max_value()
+	text += " - Reference Luminance: %.2f\n" % DisplayServer.screen_get_reference_luminance(screen)
+	text += " - Output Max Value: %.2f\n" % window.get_output_max_value()
 	
 	text += "FORMAT INFO:\n"
 	text += " - %s\n" % format_info

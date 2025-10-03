@@ -686,7 +686,7 @@ SCREEN INFO:
  - Min Luminance: 0.50
  - Max Luminance: 270.00
  - Max Full Frame Luminance: 270.00
- - SDR White Level: 80.00
+ - Reference Luminance: 80.00
  - Max Output Value: 1.0
 FORMAT INFO:
  - DATA_FORMAT_B8G8R8A8_UNORM

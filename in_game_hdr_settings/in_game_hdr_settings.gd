@@ -52,10 +52,10 @@ func _process(_delta: float) -> void:
 	var hdr_supported := window.is_hdr_output_supported()
 	%HDRCheckButton.disabled = !hdr_supported
 #
-	var hdr_output_requested: bool = window.hdr_output_requested
-	if %HDRCheckButton.button_pressed != hdr_output_requested:
-		%HDRCheckButton.button_pressed = hdr_output_requested
-	%HDROptions.visible = hdr_output_requested && hdr_supported
+	var hdr_output_enabled: bool = DisplayServer.window_is_hdr_output_enabled(window_id)
+	if %HDRCheckButton.button_pressed != hdr_output_enabled:
+		%HDRCheckButton.button_pressed = hdr_output_enabled
+	%HDROptions.visible = hdr_output_enabled && hdr_supported
 	
 	%BrightnessSlider.max_value = DisplayServer.window_get_hdr_output_current_max_luminance()
 	%BrightnessSlider.value = DisplayServer.window_get_hdr_output_current_reference_luminance(window_id)

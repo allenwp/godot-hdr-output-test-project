@@ -9,7 +9,7 @@ func _process(_delta: float) -> void:
 	var sm: ShaderMaterial = %ColourSweepMesh.material as ShaderMaterial
 	sm.set_shader_parameter("clip_to_max", clip_to_max_lum)
 	sm.set_shader_parameter("max_value", window.get_output_max_value());
-	sm.set_shader_parameter("clip_in_bt2020", window.hdr_output_requested)
+	sm.set_shader_parameter("clip_in_bt2020", DisplayServer.window_is_hdr_output_enabled(window_id))
 	%SweepMinLabel.text = "%+0.2f (linear %0.5f, %0.0f nits)" % [%MinHSlider.value, pow(2, %MinHSlider.value), pow(2, %MinHSlider.value) * DisplayServer.window_get_hdr_output_current_reference_luminance(window_id)]
 	%SweepMaxLabel.text = "%+0.2f (linear %0.5f, %0.0f nits)" % [%MaxHSlider.value, pow(2, %MaxHSlider.value), pow(2, %MaxHSlider.value) * DisplayServer.window_get_hdr_output_current_reference_luminance(window_id)]
 

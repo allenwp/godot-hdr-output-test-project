@@ -37,7 +37,3 @@ func _process(_delta: float) -> void:
 	max_adjust_material_value = pow(2.0, (log(1.0) / log(2.0)) - adjustment_step_1)
 	sm = %ExampleMaxLumAdjustBelow2.material as ShaderMaterial
 	sm.set_shader_parameter("colour", Vector3(max_adjust_material_value, max_adjust_material_value, max_adjust_material_value))
-
-
-func _on_prefer_high_precision_toggled(toggled_on: bool) -> void:
-	get_window().hdr_output_prefer_high_precision = toggled_on

@@ -192,7 +192,7 @@ offset_right = 315.0
 offset_bottom = 233.0
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer" unique_id=1685998796]
-custom_minimum_size = Vector2(0, 496)
+custom_minimum_size = Vector2(0, 476.505)
 layout_mode = 2
 color = Color(0.21568628, 0.21568628, 0.21568628, 1)
 
@@ -211,11 +211,6 @@ text = "Developer settings:"
 [node name="Button" type="Button" parent="VBoxContainer/ColorRect2/DeveloperSettings" unique_id=1727096126]
 layout_mode = 2
 text = "Erase player settings"
-
-[node name="PreferHighPrecision" type="CheckButton" parent="VBoxContainer/ColorRect2/DeveloperSettings" unique_id=2084183724]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Prefer high precision"
 
 [node name="Label3" type="Label" parent="VBoxContainer/ColorRect2/DeveloperSettings" unique_id=182639080]
 layout_mode = 2
@@ -373,7 +368,7 @@ theme_override_constants/line_spacing = 0
 text = "Max luminance
 +0.00 stops
 linear 1.00
-100 nits"
+164 nits"
 horizontal_alignment = 1
 script = ExtResource("5_efxa6")
 
@@ -459,7 +454,7 @@ offset_top = 5.0
 offset_right = 244.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-88, 200)
-text = "-0.10 (linear 0.93, 93 nits)"
+text = "-0.10 (linear 0.93, 153 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D2")
@@ -471,7 +466,7 @@ offset_top = 27.0
 offset_right = 244.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-88, 178)
-text = "-0.20 (linear 0.87, 87 nits)"
+text = "-0.20 (linear 0.87, 143 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D3")
@@ -483,7 +478,7 @@ offset_top = 49.0
 offset_right = 244.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-88, 156)
-text = "-0.40 (linear 0.76, 76 nits)"
+text = "-0.40 (linear 0.76, 124 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D4")
@@ -495,7 +490,7 @@ offset_top = 71.0
 offset_right = 244.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-88, 134)
-text = "-0.80 (linear 0.57, 57 nits)"
+text = "-0.80 (linear 0.57, 94 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D5")
@@ -507,7 +502,7 @@ offset_top = 5.0
 offset_right = 648.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-500, 200)
-text = "+0.10 (linear 1.07, 107 nits)"
+text = "+0.10 (linear 1.07, 176 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D6")
 
@@ -518,7 +513,7 @@ offset_top = 27.0
 offset_right = 648.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-500, 178)
-text = "+0.20 (linear 1.15, 115 nits)"
+text = "+0.20 (linear 1.15, 188 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D7")
 
@@ -529,7 +524,7 @@ offset_top = 49.0
 offset_right = 648.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-500, 156)
-text = "+0.40 (linear 1.32, 132 nits)"
+text = "+0.40 (linear 1.32, 216 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D8")
 
@@ -540,7 +535,7 @@ offset_top = 71.0
 offset_right = 648.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-500, 134)
-text = "+0.80 (linear 1.74, 174 nits)"
+text = "+0.80 (linear 1.74, 286 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D9")
 
@@ -695,7 +690,6 @@ vertical_alignment = 2
 script = ExtResource("8_5vw27")
 
 [connection signal="pressed" from="VBoxContainer/ColorRect2/DeveloperSettings/Button" to="VBoxContainer/ColorRect/InGameHDRSettings" method="erase_settings"]
-[connection signal="toggled" from="VBoxContainer/ColorRect2/DeveloperSettings/PreferHighPrecision" to="VBoxContainer/ColorRect2/DeveloperSettings" method="_on_prefer_high_precision_toggled"]
 [connection signal="toggled" from="ColourSweep/HBoxContainer/ClipToMax" to="ColourSweep" method="_on_clip_to_max_toggled"]
 [connection signal="value_changed" from="ColourSweep/HBoxContainer/MinHSlider" to="ColourSweep" method="_on_min_h_slider_value_changed"]
 [connection signal="value_changed" from="ColourSweep/HBoxContainer/MaxHSlider" to="ColourSweep" method="_on_max_h_slider_value_changed"]

@@ -5,7 +5,7 @@ func _process(_delta: float) -> void:
 	var adjustment_step_1 = 0.2
 	var adjustment_step_2 = 0.4
 	
-	var max_val: float = window.get_output_max_value()
+	var max_val: float = window.get_output_max_linear_value()
 	var sm: ShaderMaterial = %MaxLumAdjustBacking.material as ShaderMaterial
 	sm.set_shader_parameter("colour", Vector3(max_val, max_val, max_val))
 	

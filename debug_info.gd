@@ -14,5 +14,5 @@ func _process(_delta: float) -> void:
 	text += " - DisplayServer Supports HDR: %s\n" % DisplayServer.has_feature(DisplayServer.FEATURE_HDR_OUTPUT)
 	text += " - RenderingDevice Supports HDR: %s\n" % device_has_hdr
 	text += " - Window Supports HDR: %s\n" % DisplayServer.window_is_hdr_output_supported(window.get_window_id())
-	text += " - Output Max Value: %.2f\n" % window.get_output_max_value()
+	text += " - Output Max Value: %.2f\n" % window.get_output_max_linear_value()
 	

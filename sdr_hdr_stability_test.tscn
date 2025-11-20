@@ -1,0 +1,163 @@
+[gd_scene load_steps=18 format=3 uid="uid://c3lbdq3a3ciq0"]
+
+[ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="1_ullrm"]
+[ext_resource type="Script" uid="uid://g4025dm1m88" path="res://sdr_hdr_stability_test.gd" id="1_wkiub"]
+[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://colour_value_scripts/max_green.gd" id="3_mmbda"]
+[ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://s_rgb_primary.tscn" id="4_mmbda"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qph3w"]
+shader = ExtResource("1_ullrm")
+shader_parameter/log2_min = -18.0
+shader_parameter/log2_max = 1.0
+shader_parameter/clip_to_max = true
+shader_parameter/max_value = 1.0
+shader_parameter/clip_in_bt2020 = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_wkiub"]
+
+[sub_resource type="Shader" id="Shader_7mycd"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec3 colour;
+
+void fragment() {
+	COLOR = vec4(colour.rgb, 1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udsxo"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dh7gu"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ycwi"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, 1, -10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ob65k"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, 1, -10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xqy7m"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-100, 1, -100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h1704"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pry51"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6ksw"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-10, -10, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfwfu"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(0, -10, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ui7v2"]
+shader = SubResource("Shader_7mycd")
+shader_parameter/colour = Vector3(-100, -100, 1)
+
+[node name="StabilityTest" type="Node2D" unique_id=165160623]
+script = ExtResource("1_wkiub")
+
+[node name="ColourSweepMesh" type="MeshInstance2D" parent="." unique_id=836601706]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qph3w")
+position = Vector2(960, 540)
+scale = Vector2(1920, -1080)
+mesh = SubResource("QuadMesh_wkiub")
+
+[node name="Label" type="Label" parent="." unique_id=37204696]
+offset_left = 23.0
+offset_top = 1030.0
+offset_right = 808.0
+offset_bottom = 1053.0
+text = "Usage: If HDR output is working correctly, all colours should remain identical as HDR is enabled and disabled, except for the \"max green\" indicator."
+
+[node name="Label2" type="Label" parent="." unique_id=484280567]
+offset_left = 23.0
+offset_top = 95.0
+offset_right = 1098.0
+offset_bottom = 118.0
+text = "Max green:"
+
+[node name="StabilityTestText" type="Label" parent="." unique_id=1061020238]
+unique_name_in_owner = true
+offset_left = 23.0
+offset_top = 130.0
+offset_right = 584.0
+offset_bottom = 352.0
+text = "SDR"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=333876049]
+offset_left = 120.0
+offset_top = 98.0
+offset_right = 146.0
+offset_bottom = 116.0
+color = Color(0, 1.2026, 0, 1)
+script = ExtResource("3_mmbda")
+
+[node name="PrimariesAndNegatives" type="Control" parent="." unique_id=1232716407]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 917.0
+offset_right = 417.0
+offset_bottom = 1017.0
+
+[node name="sRGBPrimaryRed" parent="PrimariesAndNegatives" unique_id=190354221 instance=ExtResource("4_mmbda")]
+position = Vector2(67, 49)
+scale = Vector2(128, 64)
+
+[node name="sRGBPrimaryGreen" parent="PrimariesAndNegatives" unique_id=1196386523 instance=ExtResource("4_mmbda")]
+material = SubResource("ShaderMaterial_udsxo")
+position = Vector2(200, 49)
+scale = Vector2(128, 64)
+
+[node name="Negative" parent="PrimariesAndNegatives/sRGBPrimaryGreen" index="0"]
+material = SubResource("ShaderMaterial_dh7gu")
+
+[node name="Negative" parent="PrimariesAndNegatives/sRGBPrimaryGreen/Negative" index="0"]
+material = SubResource("ShaderMaterial_2ycwi")
+
+[node name="Negative2" parent="PrimariesAndNegatives/sRGBPrimaryGreen" index="1"]
+material = SubResource("ShaderMaterial_ob65k")
+
+[node name="Negative" parent="PrimariesAndNegatives/sRGBPrimaryGreen/Negative2" index="0"]
+material = SubResource("ShaderMaterial_xqy7m")
+
+[node name="sRGBPrimaryBlue" parent="PrimariesAndNegatives" unique_id=14265259 instance=ExtResource("4_mmbda")]
+material = SubResource("ShaderMaterial_h1704")
+position = Vector2(332.00006, 49)
+scale = Vector2(128, 64)
+
+[node name="Negative" parent="PrimariesAndNegatives/sRGBPrimaryBlue" index="0"]
+material = SubResource("ShaderMaterial_pry51")
+
+[node name="Negative" parent="PrimariesAndNegatives/sRGBPrimaryBlue/Negative" index="0"]
+material = SubResource("ShaderMaterial_q6ksw")
+
+[node name="Negative2" parent="PrimariesAndNegatives/sRGBPrimaryBlue" index="1"]
+material = SubResource("ShaderMaterial_pfwfu")
+
+[node name="Negative" parent="PrimariesAndNegatives/sRGBPrimaryBlue/Negative2" index="0"]
+material = SubResource("ShaderMaterial_ui7v2")
+
+[node name="ToggleHDRTimer" type="Timer" parent="." unique_id=872073183]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ToggleHDRTimer" to="." method="_on_toggle_hdr_timer_timeout"]
+
+[editable path="PrimariesAndNegatives/sRGBPrimaryGreen"]
+[editable path="PrimariesAndNegatives/sRGBPrimaryBlue"]

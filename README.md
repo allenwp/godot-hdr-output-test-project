@@ -44,3 +44,8 @@ Markings:
 ### Negative Values Test
 The bottom-right red, green, and blue rectangles will show negative sRGB values if they are being sent to the display:
 ![image](https://github.com/user-attachments/assets/d952d845-b252-4e80-98f4-67717d206a18)
+
+# SDR/HDR Stability Test
+The `sdr_hdr_stability_test.tscn` scene can be used to verify that output is stable between SDR and HDR. In this scene, all colours should be identical regardless of HDR or SDR output except for the "max green" rectangle:
+
+https://github.com/user-attachments/assets/f64b6910-29d5-458a-8afd-8dea71a90650

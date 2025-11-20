@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 	var window_id = get_window().get_window_id()
 	var hdr_supported := window.is_hdr_output_supported()
 	%HDRCheckButton.disabled = !hdr_supported
-#
+
 	var hdr_output_enabled: bool = DisplayServer.window_is_hdr_output_enabled(window_id)
 	if %HDRCheckButton.button_pressed != hdr_output_enabled:
 		%HDRCheckButton.button_pressed = hdr_output_enabled
@@ -71,7 +71,8 @@ func _process(_delta: float) -> void:
 
 func _on_hdr_check_button_toggled(toggled_on: bool) -> void:
 	# Request HDR output to the display.
-	get_window().hdr_output_requested = toggled_on
+	if !%HDRCheckButton.disabled:
+		get_window().hdr_output_requested = toggled_on
 
 
 func _on_brightness_slider_value_changed(value: float) -> void:

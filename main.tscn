@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cikrx8e0qde6d"]
+[gd_scene load_steps=49 format=3 uid="uid://cikrx8e0qde6d"]
 
 [ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://colour.gdshader" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://colour_value_scripts/max.gd" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jnc4cr2mhg00" path="res://in_game_hdr_settings/in_game_hdr_settings.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://cqjmg63jbxlns" path="res://colour_sweep.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://bclxdn8806hud" path="res://max_val_label.gd" id="5_dg77c"]
 [ext_resource type="Script" uid="uid://bj0d644r78h1w" path="res://max_lum_label.gd" id="5_efxa6"]
 [ext_resource type="Script" uid="uid://bqnpegocdj1sy" path="res://relative_max_lum_material.gd" id="5_kek77"]
 [ext_resource type="Script" uid="uid://8lngpqnv0ide" path="res://relative_max_lum_label.gd" id="6_4c57u"]
@@ -63,43 +64,43 @@ shader_parameter/colour = Vector3(1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1, 1, 1)
+shader_parameter/colour = Vector3(5.5555553, 5.5555553, 5.5555553)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1, 1, 1)
+shader_parameter/colour = Vector3(5.5555553, 5.5555553, 5.5555553)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0.933033, 0.933033, 0.933033)
+shader_parameter/colour = Vector3(5.1835165, 5.1835165, 5.1835165)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0.8705506, 0.8705506, 0.8705506)
+shader_parameter/colour = Vector3(4.836392, 4.836392, 4.836392)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82xsv"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0.7578583, 0.7578583, 0.7578583)
+shader_parameter/colour = Vector3(4.210324, 4.210324, 4.210324)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_getpj"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0.57434916, 0.57434916, 0.57434916)
+shader_parameter/colour = Vector3(3.1908286, 3.1908286, 3.1908286)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryguw"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.0717734, 1.0717734, 1.0717734)
+shader_parameter/colour = Vector3(5.9542966, 5.9542966, 5.9542966)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.1486983, 1.1486983, 1.1486983)
+shader_parameter/colour = Vector3(6.381657, 6.381657, 6.381657)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1u8w0"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.319508, 1.319508, 1.319508)
+shader_parameter/colour = Vector3(7.3305993, 7.3305993, 7.3305993)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1.7411011, 1.7411011, 1.7411011)
+shader_parameter/colour = Vector3(9.672784, 9.672784, 9.672784)
 
 [sub_resource type="Shader" id="Shader_7mycd"]
 code = "shader_type canvas_item;
@@ -312,7 +313,7 @@ offset_bottom = 1085.0
 alignment = 2
 
 [node name="BlackWhiteMax" type="Control" parent="HBoxContainer" unique_id=1868827823]
-custom_minimum_size = Vector2(258, 53)
+custom_minimum_size = Vector2(285, 73.025)
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -331,6 +332,16 @@ offset_bottom = 25.0
 text = "Black"
 horizontal_alignment = 1
 
+[node name="Label4" type="Label" parent="HBoxContainer/BlackWhiteMax" unique_id=10137459]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 46.0
+offset_right = 89.0
+offset_bottom = 69.0
+pivot_offset = Vector2(219, 19)
+text = "0.00"
+horizontal_alignment = 1
+
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="HBoxContainer/BlackWhiteMax" unique_id=1986185175]
 material = SubResource("ShaderMaterial_h2yge")
 position = Vector2(128.99988, 35)
@@ -344,6 +355,16 @@ offset_top = 2.0
 offset_right = 169.0
 offset_bottom = 25.0
 text = "White"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="HBoxContainer/BlackWhiteMax" unique_id=1454876637]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 46.0
+offset_right = 169.0
+offset_bottom = 69.0
+pivot_offset = Vector2(139, 19)
+text = "1.00"
 horizontal_alignment = 1
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="HBoxContainer/BlackWhiteMax" unique_id=438545234]
@@ -362,13 +383,24 @@ offset_bottom = 25.0
 text = "Max"
 horizontal_alignment = 1
 
+[node name="Label6" type="Label" parent="HBoxContainer/BlackWhiteMax" unique_id=1095042380]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 46.0
+offset_right = 249.0
+offset_bottom = 69.0
+pivot_offset = Vector2(59, 19)
+text = "1.00"
+horizontal_alignment = 1
+script = ExtResource("5_dg77c")
+
 [node name="MaxLumLabel" type="Label" parent="HBoxContainer" unique_id=207354234]
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 text = "Max luminance
-+0.00 stops
-linear 1.00
-164 nits"
++2.47 stops
+linear 5.56
+1000 nits"
 horizontal_alignment = 1
 script = ExtResource("5_efxa6")
 
@@ -454,7 +486,7 @@ offset_top = 5.0
 offset_right = 244.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-88, 200)
-text = "-0.10 (linear 0.93, 153 nits)"
+text = "-0.10 (linear 5.18, 933 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D2")
@@ -466,7 +498,7 @@ offset_top = 27.0
 offset_right = 244.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-88, 178)
-text = "-0.20 (linear 0.87, 143 nits)"
+text = "-0.20 (linear 4.84, 871 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D3")
@@ -478,7 +510,7 @@ offset_top = 49.0
 offset_right = 244.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-88, 156)
-text = "-0.40 (linear 0.76, 124 nits)"
+text = "-0.40 (linear 4.21, 758 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D4")
@@ -490,7 +522,7 @@ offset_top = 71.0
 offset_right = 244.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-88, 134)
-text = "-0.80 (linear 0.57, 94 nits)"
+text = "-0.80 (linear 3.19, 574 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D5")
@@ -502,7 +534,7 @@ offset_top = 5.0
 offset_right = 648.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-500, 200)
-text = "+0.10 (linear 1.07, 176 nits)"
+text = "+0.10 (linear 5.95, 1072 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D6")
 
@@ -513,7 +545,7 @@ offset_top = 27.0
 offset_right = 648.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-500, 178)
-text = "+0.20 (linear 1.15, 188 nits)"
+text = "+0.20 (linear 6.38, 1149 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D7")
 
@@ -524,7 +556,7 @@ offset_top = 49.0
 offset_right = 648.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-500, 156)
-text = "+0.40 (linear 1.32, 216 nits)"
+text = "+0.40 (linear 7.33, 1320 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D8")
 
@@ -535,7 +567,7 @@ offset_top = 71.0
 offset_right = 648.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-500, 134)
-text = "+0.80 (linear 1.74, 286 nits)"
+text = "+0.80 (linear 9.67, 1741 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D9")
 
@@ -675,17 +707,8 @@ offset_right = 406.0
 offset_bottom = 1077.0
 text = " - DisplayServer Supports HDR: true
  - RenderingDevice Supports HDR: true
- - Screen Supports HDR: false
- - Window Supports HDR: false
-SCREEN INFO:
- - Min Luminance: 0.50
- - Max Luminance: 270.00
- - Max Full Frame Luminance: 270.00
- - Reference Luminance: 80.00
- - Max Output Value: 1.0
-FORMAT INFO:
- - DATA_FORMAT_B8G8R8A8_UNORM
- - COLOR_SPACE_SRGB_NONLINEAR"
+ - Window Supports HDR: true
+ - Output Max Value: 10.0"
 vertical_alignment = 2
 script = ExtResource("8_5vw27")
 

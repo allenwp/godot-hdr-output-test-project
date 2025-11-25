@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="1_ullrm"]
 [ext_resource type="Script" uid="uid://g4025dm1m88" path="res://sdr_hdr_stability_test.gd" id="1_wkiub"]
-[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://colour_value_scripts/max_green.gd" id="3_mmbda"]
+[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://dynamic_colour_values/max_green.gd" id="3_mmbda"]
 [ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://s_rgb_primary.tscn" id="4_mmbda"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qph3w"]
@@ -76,44 +76,41 @@ position = Vector2(960, 540)
 scale = Vector2(1920, -1080)
 mesh = SubResource("QuadMesh_wkiub")
 
-[node name="Label" type="Label" parent="." unique_id=37204696]
-offset_left = 23.0
-offset_top = 1030.0
-offset_right = 808.0
-offset_bottom = 1053.0
-text = "Usage: If HDR output is working correctly, all colours should remain identical as HDR is enabled and disabled, except for the \"max green\" indicator."
-
 [node name="Label2" type="Label" parent="." unique_id=484280567]
 offset_left = 23.0
 offset_top = 95.0
 offset_right = 1098.0
 offset_bottom = 118.0
+theme_override_colors/font_color = Color(0.8138667, 0.8138666, 0.81386656, 1)
+theme_override_font_sizes/font_size = 35
 text = "Max green:"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=333876049]
+offset_left = 233.0
+offset_top = 112.0
+offset_right = 259.0
+offset_bottom = 133.0
+color = Color(0, 2.1005375, 0, 1)
+script = ExtResource("3_mmbda")
 
 [node name="StabilityTestText" type="Label" parent="." unique_id=1061020238]
 unique_name_in_owner = true
 offset_left = 23.0
-offset_top = 130.0
+offset_top = 154.0
 offset_right = 584.0
-offset_bottom = 352.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0.8138667, 0.8138666, 0.81386656, 1)
+theme_override_font_sizes/font_size = 35
 text = "SDR"
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=333876049]
-offset_left = 120.0
-offset_top = 98.0
-offset_right = 146.0
-offset_bottom = 116.0
-color = Color(0, 1.2026, 0, 1)
-script = ExtResource("3_mmbda")
 
 [node name="PrimariesAndNegatives" type="Control" parent="." unique_id=1232716407]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 17.0
-offset_top = 917.0
+offset_top = 853.0
 offset_right = 417.0
-offset_bottom = 1017.0
+offset_bottom = 953.0
 
 [node name="sRGBPrimaryRed" parent="PrimariesAndNegatives" unique_id=190354221 instance=ExtResource("4_mmbda")]
 position = Vector2(67, 49)
@@ -152,6 +149,16 @@ material = SubResource("ShaderMaterial_pfwfu")
 
 [node name="Negative" parent="PrimariesAndNegatives/sRGBPrimaryBlue/Negative2" index="0"]
 material = SubResource("ShaderMaterial_ui7v2")
+
+[node name="Label" type="Label" parent="." unique_id=37204696]
+offset_left = 23.0
+offset_top = 966.0
+offset_right = 872.0
+offset_bottom = 1033.0
+theme_override_colors/font_color = Color(0.8138667, 0.8138666, 0.81386656, 1)
+theme_override_font_sizes/font_size = 35
+text = "Usage: If HDR output is working correctly, all colours should remain identical
+as HDR is enabled and disabled, except for the \"max green\" indicator."
 
 [node name="ToggleHDRTimer" type="Timer" parent="." unique_id=872073183]
 wait_time = 2.0

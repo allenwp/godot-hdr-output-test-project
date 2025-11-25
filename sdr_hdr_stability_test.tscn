@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="1_ullrm"]
 [ext_resource type="Script" uid="uid://g4025dm1m88" path="res://sdr_hdr_stability_test.gd" id="1_wkiub"]
-[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://dynamic_colour_values/max_green.gd" id="3_mmbda"]
+[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://dynamic_colour_values/max_colour.gd" id="3_mmbda"]
 [ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://s_rgb_primary.tscn" id="4_mmbda"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qph3w"]
@@ -66,7 +66,7 @@ shader_parameter/colour = Vector3(0, -10, 1)
 shader = SubResource("Shader_7mycd")
 shader_parameter/colour = Vector3(-100, -100, 1)
 
-[node name="StabilityTest" type="Node2D" unique_id=165160623]
+[node name="StabilityTest2" type="Node2D" unique_id=165160623]
 script = ExtResource("1_wkiub")
 
 [node name="ColourSweepMesh" type="MeshInstance2D" parent="." unique_id=836601706]
@@ -92,6 +92,7 @@ offset_right = 259.0
 offset_bottom = 133.0
 color = Color(0, 2.1005375, 0, 1)
 script = ExtResource("3_mmbda")
+sdr_colour = Color(0, 1, 0, 1)
 
 [node name="StabilityTestText" type="Label" parent="." unique_id=1061020238]
 unique_name_in_owner = true

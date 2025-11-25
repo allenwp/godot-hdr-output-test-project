@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cikrx8e0qde6d"]
+[gd_scene load_steps=50 format=3 uid="uid://cikrx8e0qde6d"]
 
 [ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://dynamic_colour_values/colour.gdshader" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://dynamic_colour_values/max.gd" id="2_0xm2m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://8lngpqnv0ide" path="res://dynamic_colour_values/relative_max_lum_label.gd" id="6_4c57u"]
 [ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://s_rgb_primary.tscn" id="7_272bh"]
 [ext_resource type="Script" uid="uid://cpqmte6usoyyg" path="res://debug_info.gd" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://dynamic_colour_values/max_colour.gd" id="13_ycdy4"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 3
@@ -64,43 +65,43 @@ shader_parameter/colour = Vector3(1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(5.5555553, 5.5555553, 5.5555553)
+shader_parameter/colour = Vector3(4.1666665, 4.1666665, 4.1666665)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(5.5555553, 5.5555553, 5.5555553)
+shader_parameter/colour = Vector3(4.1666665, 4.1666665, 4.1666665)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(5.1835165, 5.1835165, 5.1835165)
+shader_parameter/colour = Vector3(3.8876374, 3.8876374, 3.8876374)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(4.836392, 4.836392, 4.836392)
+shader_parameter/colour = Vector3(3.6272938, 3.6272938, 3.6272938)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82xsv"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(4.210324, 4.210324, 4.210324)
+shader_parameter/colour = Vector3(3.1577427, 3.1577427, 3.1577427)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_getpj"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(3.1908286, 3.1908286, 3.1908286)
+shader_parameter/colour = Vector3(2.3931215, 2.3931215, 2.3931215)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryguw"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(5.9542966, 5.9542966, 5.9542966)
+shader_parameter/colour = Vector3(4.4657226, 4.4657226, 4.4657226)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(6.381657, 6.381657, 6.381657)
+shader_parameter/colour = Vector3(4.786243, 4.786243, 4.786243)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1u8w0"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(7.3305993, 7.3305993, 7.3305993)
+shader_parameter/colour = Vector3(5.4979496, 5.4979496, 5.4979496)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(9.672784, 9.672784, 9.672784)
+shader_parameter/colour = Vector3(7.2545877, 7.2545877, 7.2545877)
 
 [sub_resource type="Shader" id="Shader_7mycd"]
 code = "shader_type canvas_item;
@@ -390,7 +391,7 @@ offset_top = 46.0
 offset_right = 249.0
 offset_bottom = 69.0
 pivot_offset = Vector2(59, 19)
-text = "1.00"
+text = "4.17"
 horizontal_alignment = 1
 script = ExtResource("5_dg77c")
 
@@ -398,8 +399,8 @@ script = ExtResource("5_dg77c")
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 text = "Max luminance
-+2.47 stops
-linear 5.56
++2.06 stops
+linear 4.17
 1000 nits"
 horizontal_alignment = 1
 script = ExtResource("5_efxa6")
@@ -486,7 +487,7 @@ offset_top = 5.0
 offset_right = 244.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-88, 200)
-text = "-0.10 (linear 5.18, 933 nits)"
+text = "-0.10 (linear 3.89, 933 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D2")
@@ -498,7 +499,7 @@ offset_top = 27.0
 offset_right = 244.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-88, 178)
-text = "-0.20 (linear 4.84, 871 nits)"
+text = "-0.20 (linear 3.63, 871 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D3")
@@ -510,7 +511,7 @@ offset_top = 49.0
 offset_right = 244.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-88, 156)
-text = "-0.40 (linear 4.21, 758 nits)"
+text = "-0.40 (linear 3.16, 758 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D4")
@@ -522,7 +523,7 @@ offset_top = 71.0
 offset_right = 244.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-88, 134)
-text = "-0.80 (linear 3.19, 574 nits)"
+text = "-0.80 (linear 2.39, 574 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D5")
@@ -534,7 +535,7 @@ offset_top = 5.0
 offset_right = 648.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-500, 200)
-text = "+0.10 (linear 5.95, 1072 nits)"
+text = "+0.10 (linear 4.47, 1072 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D6")
 
@@ -545,7 +546,7 @@ offset_top = 27.0
 offset_right = 648.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-500, 178)
-text = "+0.20 (linear 6.38, 1149 nits)"
+text = "+0.20 (linear 4.79, 1149 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D7")
 
@@ -556,7 +557,7 @@ offset_top = 49.0
 offset_right = 648.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-500, 156)
-text = "+0.40 (linear 7.33, 1320 nits)"
+text = "+0.40 (linear 5.50, 1320 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D8")
 
@@ -567,7 +568,7 @@ offset_top = 71.0
 offset_right = 648.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-500, 134)
-text = "+0.80 (linear 9.67, 1741 nits)"
+text = "+0.80 (linear 7.25, 1741 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D9")
 
@@ -711,6 +712,57 @@ text = " - DisplayServer Supports HDR: true
  - Output Max Value: 10.0"
 vertical_alignment = 2
 script = ExtResource("8_5vw27")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=443567928]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 801.0
+offset_right = 60.0
+offset_bottom = 841.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1765336189]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 853.0
+offset_right = 60.0
+offset_bottom = 893.0
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1445682559]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 904.0
+offset_right = 60.0
+offset_bottom = 944.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1104706596]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 801.0
+offset_right = 111.0
+offset_bottom = 841.0
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(1, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=2138302032]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 853.0
+offset_right = 111.0
+offset_bottom = 893.0
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(0, 1, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="." unique_id=1549780699]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 904.0
+offset_right = 111.0
+offset_bottom = 944.0
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(0, 0, 1, 1)
 
 [connection signal="pressed" from="VBoxContainer/ColorRect2/DeveloperSettings/Button" to="VBoxContainer/ColorRect/InGameHDRSettings" method="erase_settings"]
 [connection signal="toggled" from="ColourSweep/HBoxContainer/ClipToMax" to="ColourSweep" method="_on_clip_to_max_toggled"]

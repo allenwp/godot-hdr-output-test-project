@@ -57,13 +57,13 @@ func _process(_delta: float) -> void:
 		%HDRCheckButton.button_pressed = hdr_output_enabled
 	%HDROptions.visible = hdr_output_enabled && hdr_supported
 	
-	%BrightnessSlider.max_value = DisplayServer.window_get_hdr_output_current_max_luminance()
-	%BrightnessSlider.value = DisplayServer.window_get_hdr_output_current_reference_luminance(window_id)
-	%BrightnessLabel.text = "%0.0f" % DisplayServer.window_get_hdr_output_current_reference_luminance(window_id)
+	%BrightnessSlider.max_value = DisplayServer.window_get_hdr_output_max_luminance()
+	%BrightnessSlider.value = DisplayServer.window_get_hdr_output_reference_luminance(window_id)
+	%BrightnessLabel.text = "%0.0f" % DisplayServer.window_get_hdr_output_reference_luminance(window_id)
 	
-	$%MaxLumSlider.min_value = DisplayServer.window_get_hdr_output_current_reference_luminance(window_id)
-	%MaxLumSlider.value = DisplayServer.window_get_hdr_output_current_max_luminance()
-	%MaxLumLabel.text = "%0.0f" % DisplayServer.window_get_hdr_output_current_max_luminance()
+	$%MaxLumSlider.min_value = DisplayServer.window_get_hdr_output_reference_luminance(window_id)
+	%MaxLumSlider.value = DisplayServer.window_get_hdr_output_max_luminance()
+	%MaxLumLabel.text = "%0.0f" % DisplayServer.window_get_hdr_output_max_luminance()
 	
 	%ResetBrightness.disabled = DisplayServer.window_get_hdr_output_reference_luminance(window_id) < 0
 	%ResetMaxLum.disabled = DisplayServer.window_get_hdr_output_max_luminance(window_id) < 0
@@ -72,7 +72,7 @@ func _process(_delta: float) -> void:
 func _on_hdr_check_button_toggled(toggled_on: bool) -> void:
 	# Request HDR output to the display.
 	if !%HDRCheckButton.disabled:
-		get_window().hdr_output_requested = toggled_on
+		get_window().hdr_output_enabled = toggled_on
 
 
 func _on_brightness_slider_value_changed(value: float) -> void:

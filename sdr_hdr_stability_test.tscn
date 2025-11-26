@@ -103,7 +103,7 @@ offset_left = 120.0
 offset_top = 98.0
 offset_right = 146.0
 offset_bottom = 116.0
-color = Color(0, 1.2026, 0, 1)
+color = Color(0, 1, 0, 1)
 script = ExtResource("3_mmbda")
 
 [node name="PrimariesAndNegatives" type="Control" parent="." unique_id=1232716407]

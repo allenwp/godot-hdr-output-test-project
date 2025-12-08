@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HDR Output Test"
-run/main_scene="res://main.tscn"
+run/main_scene="uid://c3lbdq3a3ciq0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

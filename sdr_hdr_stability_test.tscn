@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3lbdq3a3ciq0"]
+[gd_scene format=3 uid="uid://c3lbdq3a3ciq0"]
 
 [ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="1_ullrm"]
 [ext_resource type="Script" uid="uid://g4025dm1m88" path="res://sdr_hdr_stability_test.gd" id="1_wkiub"]
@@ -71,12 +71,40 @@ script = ExtResource("1_wkiub")
 
 [node name="ColourSweepMesh" type="MeshInstance2D" parent="." unique_id=836601706]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_qph3w")
 position = Vector2(960, 540)
 scale = Vector2(1920, -1080)
 mesh = SubResource("QuadMesh_wkiub")
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1986108715]
+offset_right = 1928.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2" unique_id=673687567]
+layout_mode = 0
+offset_left = 999.0
+offset_top = 526.0
+offset_right = 1247.0
+offset_bottom = 699.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2" unique_id=899589614]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = -601.0
+offset_right = 1912.0
+offset_bottom = -88.0
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect2" unique_id=1212390601]
+layout_mode = 0
+offset_left = 1756.0
+offset_top = -577.0
+offset_right = 2260.0
+offset_bottom = -64.0
+
 [node name="Label2" type="Label" parent="." unique_id=484280567]
+visible = false
 offset_left = 23.0
 offset_top = 95.0
 offset_right = 1098.0
@@ -86,20 +114,21 @@ theme_override_font_sizes/font_size = 35
 text = "Max green:"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=333876049]
+visible = false
 offset_left = 233.0
 offset_top = 112.0
 offset_right = 259.0
 offset_bottom = 133.0
-color = Color(0, 2.1005375, 0, 1)
+color = Color(0, 1, 0, 1)
 script = ExtResource("3_mmbda")
 sdr_colour = Color(0, 1, 0, 1)
 
 [node name="StabilityTestText" type="Label" parent="." unique_id=1061020238]
 unique_name_in_owner = true
-offset_left = 23.0
-offset_top = 154.0
-offset_right = 584.0
-offset_bottom = 376.0
+offset_left = 587.0
+offset_top = 382.0
+offset_right = 1148.0
+offset_bottom = 604.0
 theme_override_colors/font_color = Color(0.8138667, 0.8138666, 0.81386656, 1)
 theme_override_font_sizes/font_size = 35
 text = "SDR"
@@ -108,10 +137,10 @@ text = "SDR"
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 17.0
-offset_top = 853.0
-offset_right = 417.0
-offset_bottom = 953.0
+offset_left = 589.0
+offset_top = 614.0
+offset_right = 989.0
+offset_bottom = 714.0
 
 [node name="sRGBPrimaryRed" parent="PrimariesAndNegatives" unique_id=190354221 instance=ExtResource("4_mmbda")]
 position = Vector2(67, 49)
@@ -152,6 +181,7 @@ material = SubResource("ShaderMaterial_pfwfu")
 material = SubResource("ShaderMaterial_ui7v2")
 
 [node name="Label" type="Label" parent="." unique_id=37204696]
+visible = false
 offset_left = 23.0
 offset_top = 966.0
 offset_right = 872.0

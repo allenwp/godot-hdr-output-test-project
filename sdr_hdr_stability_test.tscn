@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c3lbdq3a3ciq0"]
 
-[ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="1_ullrm"]
-[ext_resource type="Script" uid="uid://g4025dm1m88" path="res://sdr_hdr_stability_test.gd" id="1_wkiub"]
-[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://dynamic_colour_values/max_colour.gd" id="3_mmbda"]
-[ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://s_rgb_primary.tscn" id="4_mmbda"]
+[ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://main/colour_sweep.gdshader" id="1_ullrm"]
+[ext_resource type="Script" uid="uid://g4025dm1m88" path="res://sdr_hdr_stability_test/sdr_hdr_stability_test.gd" id="1_wkiub"]
+[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://max_colour.gd" id="3_mmbda"]
+[ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://debug_luminance/s_rgb_primary.tscn" id="4_mmbda"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qph3w"]
 shader = ExtResource("1_ullrm")

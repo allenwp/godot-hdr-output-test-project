@@ -1,66 +1,23 @@
 [gd_scene format=3 uid="uid://cikrx8e0qde6d"]
 
-[ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://dynamic_colour_values/colour.gdshader" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://dynamic_colour_values/max.gd" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://c74bp7pq3jbkx" path="res://developer_settings.gd" id="2_7mycd"]
+[ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://debug_luminance/colour.gdshader" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://c74bp7pq3jbkx" path="res://main/developer_settings.gd" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://jnc4cr2mhg00" path="res://in_game_hdr_settings/in_game_hdr_settings.tscn" id="3_h2yge"]
-[ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://cqjmg63jbxlns" path="res://colour_sweep.gd" id="4_lquwl"]
-[ext_resource type="Script" uid="uid://bclxdn8806hud" path="res://dynamic_colour_values/max_val_label.gd" id="5_dg77c"]
-[ext_resource type="Script" uid="uid://bj0d644r78h1w" path="res://dynamic_colour_values/max_lum_label.gd" id="5_efxa6"]
-[ext_resource type="Script" uid="uid://bqnpegocdj1sy" path="res://dynamic_colour_values/relative_max_lum_material.gd" id="5_kek77"]
-[ext_resource type="Script" uid="uid://8lngpqnv0ide" path="res://dynamic_colour_values/relative_max_lum_label.gd" id="6_4c57u"]
-[ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://s_rgb_primary.tscn" id="7_272bh"]
-[ext_resource type="Script" uid="uid://cpqmte6usoyyg" path="res://debug_info.gd" id="8_5vw27"]
-[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://dynamic_colour_values/max_colour.gd" id="13_ycdy4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lswn8"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1, 1, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_a6jrf"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuqvo"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq58d"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_htxhm"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq2sk"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4k2k6"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0, 0, 0)
-
-[sub_resource type="QuadMesh" id="QuadMesh_h2yge"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(1, 1, 1)
+[ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://main/colour_sweep.gdshader" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://cqjmg63jbxlns" path="res://main/colour_sweep.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://bclxdn8806hud" path="res://debug_luminance/max_val_label.gd" id="5_dg77c"]
+[ext_resource type="Script" uid="uid://bj0d644r78h1w" path="res://debug_luminance/max_lum_label.gd" id="5_efxa6"]
+[ext_resource type="Script" uid="uid://bqnpegocdj1sy" path="res://debug_luminance/relative_max_lum_material.gd" id="5_kek77"]
+[ext_resource type="Script" uid="uid://8lngpqnv0ide" path="res://debug_luminance/relative_max_lum_label.gd" id="6_4c57u"]
+[ext_resource type="PackedScene" uid="uid://40a2awmcg38r" path="res://debug_luminance/s_rgb_primary.tscn" id="7_272bh"]
+[ext_resource type="Script" uid="uid://cpqmte6usoyyg" path="res://main/debug_info.gd" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://max_colour.gd" id="13_ycdy4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
 shader = ExtResource("1_ig7tw")
 shader_parameter/colour = Vector3(0.933033, 0.933033, 0.933033)
+
+[sub_resource type="QuadMesh" id="QuadMesh_h2yge"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
 shader = ExtResource("1_ig7tw")
@@ -205,23 +162,24 @@ text = "Reference monitor calibration:"
 custom_minimum_size = Vector2(0, 108.885)
 layout_mode = 2
 
-[node name="MaxLumAdjustBacking" type="MeshInstance2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=1923962038]
+[node name="MaxLumAdjustBacking" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=1341568457]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_lswn8")
-position = Vector2(68.999985, 54)
-scale = Vector2(119.5, 100)
-mesh = SubResource("QuadMesh_a6jrf")
+layout_mode = 0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 129.0
+offset_bottom = 104.0
 
 [node name="MaxLumAdjustBelow2" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=144371379]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_xuqvo")
+self_modulate = Color(0.8848981, 0.8848981, 0.8848981, 1)
 position = Vector2(40, 54)
 scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
 
 [node name="MaxLumAdjustBelow3" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=106732800]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_kq58d")
+self_modulate = Color(0.9407874, 0.9407874, 0.9407874, 1)
 position = Vector2(98, 53.999985)
 scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
@@ -295,23 +253,23 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(0, 108.885)
 layout_mode = 2
 
-[node name="ExampleMaxLumAdjustBacking" type="MeshInstance2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1976413506]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_htxhm")
-position = Vector2(69, 54)
-scale = Vector2(119.5, 100)
-mesh = SubResource("QuadMesh_a6jrf")
+[node name="MaxLumAdjustBacking" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1125706939]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 129.0
+offset_bottom = 104.0
 
 [node name="ExampleMaxLumAdjustBelow" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1291892689]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_jq2sk")
+self_modulate = Color(0.8848981, 0.8848981, 0.8848981, 1)
 position = Vector2(40, 54)
 scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
 
 [node name="ExampleMaxLumAdjustBelow2" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1861809390]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_4k2k6")
+self_modulate = Color(0.9407874, 0.9407874, 0.9407874, 1)
 position = Vector2(98, 53.999985)
 scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
@@ -381,11 +339,13 @@ custom_minimum_size = Vector2(285, 73.025)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/BlackWhiteMax" unique_id=1984099005]
-material = SubResource("ShaderMaterial_0xm2m")
-position = Vector2(49, 35)
-scale = Vector2(80, 20)
-mesh = SubResource("QuadMesh_h2yge")
+[node name="Black" type="ColorRect" parent="HBoxContainer/BlackWhiteMax" unique_id=255226634]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 25.0
+offset_right = 89.0
+offset_bottom = 45.0
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="HBoxContainer/BlackWhiteMax" unique_id=1432220451]
 layout_mode = 0
@@ -406,11 +366,12 @@ pivot_offset = Vector2(219, 19)
 text = "0.00"
 horizontal_alignment = 1
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="HBoxContainer/BlackWhiteMax" unique_id=1986185175]
-material = SubResource("ShaderMaterial_h2yge")
-position = Vector2(128.99988, 35)
-scale = Vector2(80, 20)
-mesh = SubResource("QuadMesh_h2yge")
+[node name="White" type="ColorRect" parent="HBoxContainer/BlackWhiteMax" unique_id=725348665]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 25.0
+offset_right = 169.0
+offset_bottom = 45.0
 
 [node name="Label2" type="Label" parent="HBoxContainer/BlackWhiteMax" unique_id=733073890]
 layout_mode = 0
@@ -431,12 +392,14 @@ pivot_offset = Vector2(139, 19)
 text = "1.00"
 horizontal_alignment = 1
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="HBoxContainer/BlackWhiteMax" unique_id=438545234]
-material = SubResource("ShaderMaterial_1bvp3")
-position = Vector2(209, 35)
-scale = Vector2(80, 20)
-mesh = SubResource("QuadMesh_h2yge")
-script = ExtResource("2_0xm2m")
+[node name="Max" type="ColorRect" parent="HBoxContainer/BlackWhiteMax" unique_id=1672818577]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 25.0
+offset_right = 249.0
+offset_bottom = 45.0
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(1, 1, 1, 1)
 
 [node name="Label3" type="Label" parent="HBoxContainer/BlackWhiteMax" unique_id=907524270]
 layout_mode = 0
@@ -472,12 +435,14 @@ script = ExtResource("5_efxa6")
 custom_minimum_size = Vector2(660, 0)
 layout_mode = 2
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/Control" unique_id=33599068]
-material = SubResource("ShaderMaterial_yaehf")
-position = Vector2(327, 50.00006)
-scale = Vector2(36, 88)
-mesh = SubResource("QuadMesh_h2yge")
-script = ExtResource("2_0xm2m")
+[node name="Max" type="ColorRect" parent="HBoxContainer/Control" unique_id=993113774]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 6.0
+offset_right = 345.0
+offset_bottom = 94.0
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(1, 1, 1, 1)
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="HBoxContainer/Control" unique_id=211840440]
 material = SubResource("ShaderMaterial_074og")

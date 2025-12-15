@@ -17,14 +17,6 @@ func _process(_delta: float) -> void:
 	sm = %MaxLumAdjustBelow3.material as ShaderMaterial
 	sm.set_shader_parameter("colour", Vector3(max_adjust_material_value, max_adjust_material_value, max_adjust_material_value))
 	
-	max_adjust_material_value = pow(2.0, (log(max_val) / log(2.0)) + adjustment_step_2)
-	sm = %MaxLumAdjustAbove2.material as ShaderMaterial
-	sm.set_shader_parameter("colour", Vector3(max_adjust_material_value, max_adjust_material_value, max_adjust_material_value))
-	
-	max_adjust_material_value = pow(2.0, (log(max_val) / log(2.0)) + adjustment_step_1)
-	sm = %MaxLumAdjustAbove3.material as ShaderMaterial
-	sm.set_shader_parameter("colour", Vector3(max_adjust_material_value, max_adjust_material_value, max_adjust_material_value))
-	
 	#Examples:
 	
 	sm = %ExampleMaxLumAdjustBacking.material as ShaderMaterial

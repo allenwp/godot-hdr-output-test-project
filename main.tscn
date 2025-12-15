@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cikrx8e0qde6d"]
+[gd_scene format=3 uid="uid://cikrx8e0qde6d"]
 
 [ext_resource type="Shader" uid="uid://dkw23nbjt2nmi" path="res://dynamic_colour_values/colour.gdshader" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dshna56wm3p81" path="res://dynamic_colour_values/max.gd" id="2_0xm2m"]
@@ -14,11 +14,6 @@
 [ext_resource type="Script" uid="uid://cpqmte6usoyyg" path="res://debug_info.gd" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://dxtpfowo3fjm4" path="res://dynamic_colour_values/max_colour.gd" id="13_ycdy4"]
 
-[sub_resource type="Environment" id="Environment_ig7tw"]
-background_mode = 3
-ambient_light_source = 1
-reflected_light_source = 1
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lswn8"]
 shader = ExtResource("1_ig7tw")
 shader_parameter/colour = Vector3(1, 1, 1)
@@ -29,15 +24,7 @@ shader_parameter/colour = Vector3(1, 1, 1)
 shader = ExtResource("1_ig7tw")
 shader_parameter/colour = Vector3(0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsp4k"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0, 0, 0)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kq58d"]
-shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(0, 0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_seu75"]
 shader = ExtResource("1_ig7tw")
 shader_parameter/colour = Vector3(0, 0, 0)
 
@@ -65,43 +52,43 @@ shader_parameter/colour = Vector3(1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(4.1666665, 4.1666665, 4.1666665)
+shader_parameter/colour = Vector3(1.5625, 1.5625, 1.5625)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yaehf"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(4.1666665, 4.1666665, 4.1666665)
+shader_parameter/colour = Vector3(1.5625, 1.5625, 1.5625)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(3.8876374, 3.8876374, 3.8876374)
+shader_parameter/colour = Vector3(1.457864, 1.457864, 1.457864)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(3.6272938, 3.6272938, 3.6272938)
+shader_parameter/colour = Vector3(1.3602352, 1.3602352, 1.3602352)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82xsv"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(3.1577427, 3.1577427, 3.1577427)
+shader_parameter/colour = Vector3(1.1841536, 1.1841536, 1.1841536)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_getpj"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(2.3931215, 2.3931215, 2.3931215)
+shader_parameter/colour = Vector3(0.8974206, 0.8974206, 0.8974206)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryguw"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(4.4657226, 4.4657226, 4.4657226)
+shader_parameter/colour = Vector3(1.674646, 1.674646, 1.674646)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d13ii"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(4.786243, 4.786243, 4.786243)
+shader_parameter/colour = Vector3(1.7948412, 1.7948412, 1.7948412)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1u8w0"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(5.4979496, 5.4979496, 5.4979496)
+shader_parameter/colour = Vector3(2.061731, 2.061731, 2.061731)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
 shader = ExtResource("1_ig7tw")
-shader_parameter/colour = Vector3(7.2545877, 7.2545877, 7.2545877)
+shader_parameter/colour = Vector3(2.7204704, 2.7204704, 2.7204704)
 
 [sub_resource type="Shader" id="Shader_7mycd"]
 code = "shader_type canvas_item;
@@ -172,10 +159,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1392531372]
-unique_name_in_owner = true
-environment = SubResource("Environment_ig7tw")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2107551733]
 layout_mode = 0
 offset_right = 320.0
@@ -225,21 +208,14 @@ layout_mode = 2
 [node name="MaxLumAdjustBacking" type="MeshInstance2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=1923962038]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_lswn8")
-position = Vector2(127.49999, 54)
-scale = Vector2(238.99998, 100)
+position = Vector2(68.999985, 54)
+scale = Vector2(119.5, 100)
 mesh = SubResource("QuadMesh_a6jrf")
 
 [node name="MaxLumAdjustBelow2" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=144371379]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xuqvo")
 position = Vector2(40, 54)
-scale = Vector2(50, 50)
-polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
-
-[node name="MaxLumAdjustAbove2" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=191057761]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_qsp4k")
-position = Vector2(214.99998, 53.999985)
 scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
 
@@ -250,26 +226,69 @@ position = Vector2(98, 53.999985)
 scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
 
-[node name="MaxLumAdjustAbove3" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=823815487]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_seu75")
-position = Vector2(155.99998, 53.999985)
-scale = Vector2(50, 50)
-polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, 0.24485302, 0.5, -0.5, 0.5)
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=513770605]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=443567928]
 layout_mode = 0
-offset_left = 126.0
+offset_left = 136.0
 offset_top = 4.0
-offset_right = 128.0
+offset_right = 186.0
+offset_bottom = 54.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=1765336189]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 4.0
+offset_right = 243.0
+offset_bottom = 54.0
+pivot_offset = Vector2(44, 29)
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=1445682559]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 4.0
+offset_right = 300.0
+offset_bottom = 54.0
+pivot_offset = Vector2(44, -4)
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=1104706596]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 54.0
+offset_right = 186.0
 offset_bottom = 104.0
-color = Color(0, 0, 0, 1)
+color = Color(1.2156057, 0, 0, 1)
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(1, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=2138302032]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 54.0
+offset_right = 243.0
+offset_bottom = 104.0
+pivot_offset = Vector2(0, 29)
+color = Color(0, 1.2156057, 0, 1)
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(0, 1, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control" unique_id=1549780699]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 54.0
+offset_right = 300.0
+offset_bottom = 104.0
+pivot_offset = Vector2(0, -4)
+color = Color(0, 0, 1.2156057, 1)
+script = ExtResource("13_ycdy4")
+sdr_colour = Color(0, 0, 1, 1)
 
 [node name="Label2" type="Label" parent="VBoxContainer/ColorRect2/DeveloperSettings" unique_id=332601797]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 6
-text = "Adjust Max luminance so that the triangles on the left are visible and the triangles on the right are not visible. If this is not possible, tap Reset to use the value reported by the display. Example:"
+text = "Set max luminance as high as possible while maintaining the visibility of both triangles and the hue and saturation of the three colors. Tap Reset to use the value reported by the display. Example:"
 autowrap_mode = 3
 
 [node name="Control2" type="Control" parent="VBoxContainer/ColorRect2/DeveloperSettings" unique_id=1021742490]
@@ -279,8 +298,8 @@ layout_mode = 2
 [node name="ExampleMaxLumAdjustBacking" type="MeshInstance2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1976413506]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_htxhm")
-position = Vector2(127.49999, 54)
-scale = Vector2(238.99998, 100)
+position = Vector2(69, 54)
+scale = Vector2(119.5, 100)
 mesh = SubResource("QuadMesh_a6jrf")
 
 [node name="ExampleMaxLumAdjustBelow" type="Polygon2D" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1291892689]
@@ -297,13 +316,57 @@ position = Vector2(98, 53.999985)
 scale = Vector2(50, 50)
 polygon = PackedVector2Array(0, -0.5, 0.5, 0.5, -0.5, 0.5)
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1685638188]
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=137267310]
 layout_mode = 0
-offset_left = 126.0
+offset_left = 136.0
 offset_top = 4.0
-offset_right = 128.0
+offset_right = 186.0
+offset_bottom = 54.0
+color = Color(0.735357, 0, 0, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=752449690]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 4.0
+offset_right = 243.0
+offset_bottom = 54.0
+pivot_offset = Vector2(44, 29)
+color = Color(0, 0.735357, 0, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=167545516]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 4.0
+offset_right = 300.0
+offset_bottom = 54.0
+pivot_offset = Vector2(44, -4)
+color = Color(0, 0, 0.735357, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=1401542410]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 54.0
+offset_right = 186.0
 offset_bottom = 104.0
-color = Color(0, 0, 0, 1)
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=534544741]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 54.0
+offset_right = 243.0
+offset_bottom = 104.0
+pivot_offset = Vector2(44, 29)
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="VBoxContainer/ColorRect2/DeveloperSettings/Control2" unique_id=793779675]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 54.0
+offset_right = 300.0
+offset_bottom = 104.0
+pivot_offset = Vector2(44, -4)
+color = Color(0, 0, 1, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1847757096]
 layout_mode = 0
@@ -391,7 +454,7 @@ offset_top = 46.0
 offset_right = 249.0
 offset_bottom = 69.0
 pivot_offset = Vector2(59, 19)
-text = "4.17"
+text = "1.56"
 horizontal_alignment = 1
 script = ExtResource("5_dg77c")
 
@@ -399,9 +462,9 @@ script = ExtResource("5_dg77c")
 layout_mode = 2
 theme_override_constants/line_spacing = 0
 text = "Max luminance
-+2.06 stops
-linear 4.17
-1000 nits"
++0.64 stops
+linear 1.56
+250 nits"
 horizontal_alignment = 1
 script = ExtResource("5_efxa6")
 
@@ -487,7 +550,7 @@ offset_top = 5.0
 offset_right = 244.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-88, 200)
-text = "-0.10 (linear 3.89, 933 nits)"
+text = "-0.10 (linear 1.46, 233 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D2")
@@ -499,7 +562,7 @@ offset_top = 27.0
 offset_right = 244.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-88, 178)
-text = "-0.20 (linear 3.63, 871 nits)"
+text = "-0.20 (linear 1.36, 218 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D3")
@@ -511,7 +574,7 @@ offset_top = 49.0
 offset_right = 244.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-88, 156)
-text = "-0.40 (linear 3.16, 758 nits)"
+text = "-0.40 (linear 1.18, 189 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D4")
@@ -523,7 +586,7 @@ offset_top = 71.0
 offset_right = 244.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-88, 134)
-text = "-0.80 (linear 2.39, 574 nits)"
+text = "-0.80 (linear 0.90, 144 nits)"
 horizontal_alignment = 2
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D5")
@@ -535,7 +598,7 @@ offset_top = 5.0
 offset_right = 648.0
 offset_bottom = 28.0
 pivot_offset = Vector2(-500, 200)
-text = "+0.10 (linear 4.47, 1072 nits)"
+text = "+0.10 (linear 1.67, 268 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D6")
 
@@ -546,7 +609,7 @@ offset_top = 27.0
 offset_right = 648.0
 offset_bottom = 50.0
 pivot_offset = Vector2(-500, 178)
-text = "+0.20 (linear 4.79, 1149 nits)"
+text = "+0.20 (linear 1.79, 287 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D7")
 
@@ -557,7 +620,7 @@ offset_top = 49.0
 offset_right = 648.0
 offset_bottom = 72.0
 pivot_offset = Vector2(-500, 156)
-text = "+0.40 (linear 5.50, 1320 nits)"
+text = "+0.40 (linear 2.06, 330 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D8")
 
@@ -568,7 +631,7 @@ offset_top = 71.0
 offset_right = 648.0
 offset_bottom = 94.0
 pivot_offset = Vector2(-500, 134)
-text = "+0.80 (linear 7.25, 1741 nits)"
+text = "+0.80 (linear 2.72, 435 nits)"
 script = ExtResource("6_4c57u")
 mesh = NodePath("../MeshInstance2D9")
 
@@ -712,57 +775,6 @@ text = " - DisplayServer Supports HDR: true
  - Output Max Value: 10.0"
 vertical_alignment = 2
 script = ExtResource("8_5vw27")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=443567928]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 801.0
-offset_right = 60.0
-offset_bottom = 841.0
-color = Color(1, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1765336189]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 853.0
-offset_right = 60.0
-offset_bottom = 893.0
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="." unique_id=1445682559]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 904.0
-offset_right = 60.0
-offset_bottom = 944.0
-color = Color(0, 0, 1, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="." unique_id=1104706596]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 801.0
-offset_right = 111.0
-offset_bottom = 841.0
-script = ExtResource("13_ycdy4")
-sdr_colour = Color(1, 0, 0, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="." unique_id=2138302032]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 853.0
-offset_right = 111.0
-offset_bottom = 893.0
-script = ExtResource("13_ycdy4")
-sdr_colour = Color(0, 1, 0, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="." unique_id=1549780699]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 904.0
-offset_right = 111.0
-offset_bottom = 944.0
-script = ExtResource("13_ycdy4")
-sdr_colour = Color(0, 0, 1, 1)
 
 [connection signal="pressed" from="VBoxContainer/ColorRect2/DeveloperSettings/Button" to="VBoxContainer/ColorRect/InGameHDRSettings" method="erase_settings"]
 [connection signal="toggled" from="ColourSweep/HBoxContainer/ClipToMax" to="ColourSweep" method="_on_clip_to_max_toggled"]

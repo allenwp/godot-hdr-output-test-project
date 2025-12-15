@@ -5,7 +5,6 @@ uniform float log2_min = -18.0;
 uniform float log2_max = 5.0;
 uniform bool clip_to_max = false;
 uniform float max_value = 10;
-uniform bool clip_in_bt2020 = true;
 
 void fragment() {
 	vec3 color;
@@ -58,27 +57,6 @@ void fragment() {
 		}
 
 		color = col * scale;
-		
-		if (clip_to_max) {
-			// TODO: maybe also give an option for P3 primaries?
-			const mat3 LINEAR_SRGB_TO_LINEAR_REC2020 = mat3(
-					vec3(0.627403895934699, 0.069097289358232, 0.016391438875150),
-					vec3(0.329283038377884, 0.919540395075458, 0.088013307877226),
-					vec3(0.043313065687417, 0.011362315566309, 0.895595253247624));
-
-			const mat3 LINEAR_REC2020_TO_LINEAR_SRGB = mat3(
-					vec3(1.660491002108435, -0.124550474521591, -0.018150763354905),
-					vec3(-0.587641138788550, 1.132899897125961, -0.100578898008007),
-					vec3(-0.072849863319885, -0.008349422604369, 1.118729661362913));
-			
-			if (clip_in_bt2020) {
-				color = LINEAR_SRGB_TO_LINEAR_REC2020 * color;
-			}
-			color = min(color, max_value);
-			if (clip_in_bt2020) {
-				color = LINEAR_REC2020_TO_LINEAR_SRGB * color;
-			}
-		}
 	}
 	else
 	{
@@ -118,12 +96,11 @@ void fragment() {
 				color = vec3(tick_col);
 			}
 		}
-		
-		if (clip_to_max) {
-			color = min(color, max_value);
-		}
 	}
 	
+	if (clip_to_max) {
+		color = min(color, max_value);
+	}
 
 	COLOR = vec4(color.rgb, 1.0);
 }

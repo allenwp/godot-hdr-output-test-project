@@ -104,7 +104,6 @@ shader_parameter/log2_min = -18.0
 shader_parameter/log2_max = 5.0
 shader_parameter/clip_to_max = false
 shader_parameter/max_value = 10.0
-shader_parameter/clip_in_bt2020 = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_7mycd"]
 
@@ -670,10 +669,6 @@ offset_right = 1649.0
 offset_bottom = 42.0
 alignment = 1
 
-[node name="ClipToMax" type="CheckButton" parent="ColourSweep/HBoxContainer" unique_id=1410117631]
-layout_mode = 2
-text = "Clip to max luminance"
-
 [node name="Label" type="Label" parent="ColourSweep/HBoxContainer" unique_id=1428013368]
 layout_mode = 2
 text = "Min"
@@ -742,7 +737,6 @@ vertical_alignment = 2
 script = ExtResource("8_5vw27")
 
 [connection signal="pressed" from="VBoxContainer/ColorRect2/DeveloperSettings/Button" to="VBoxContainer/ColorRect/InGameHDRSettings" method="erase_settings"]
-[connection signal="toggled" from="ColourSweep/HBoxContainer/ClipToMax" to="ColourSweep" method="_on_clip_to_max_toggled"]
 [connection signal="value_changed" from="ColourSweep/HBoxContainer/MinHSlider" to="ColourSweep" method="_on_min_h_slider_value_changed"]
 [connection signal="value_changed" from="ColourSweep/HBoxContainer/MaxHSlider" to="ColourSweep" method="_on_max_h_slider_value_changed"]
 

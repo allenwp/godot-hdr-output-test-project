@@ -1,4 +1,3 @@
-@tool
 extends ColorRect
 
 @export var sdr_colour: Color

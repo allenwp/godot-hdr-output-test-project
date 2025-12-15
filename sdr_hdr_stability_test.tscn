@@ -90,7 +90,7 @@ offset_left = 233.0
 offset_top = 112.0
 offset_right = 259.0
 offset_bottom = 133.0
-color = Color(0, 1.2156057, 0, 1)
+color = Color(0, 1, 0, 1)
 script = ExtResource("3_mmbda")
 sdr_colour = Color(0, 1, 0, 1)
 

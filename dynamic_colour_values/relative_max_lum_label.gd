@@ -1,4 +1,3 @@
-@tool
 extends Label
 
 @export var mesh: RelativeMaxLumMaterial

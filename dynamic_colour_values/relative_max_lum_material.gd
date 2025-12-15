@@ -1,4 +1,3 @@
-@tool
 class_name RelativeMaxLumMaterial extends MeshInstance2D
 
 @export var relative_stops: float = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3lbdq3a3ciq0"]
+[gd_scene format=3 uid="uid://c3lbdq3a3ciq0"]
 
 [ext_resource type="Shader" uid="uid://upgu5h4jlibh" path="res://colour_sweep.gdshader" id="1_ullrm"]
 [ext_resource type="Script" uid="uid://g4025dm1m88" path="res://sdr_hdr_stability_test.gd" id="1_wkiub"]
@@ -90,7 +90,7 @@ offset_left = 233.0
 offset_top = 112.0
 offset_right = 259.0
 offset_bottom = 133.0
-color = Color(0, 2.1005375, 0, 1)
+color = Color(0, 1.2156057, 0, 1)
 script = ExtResource("3_mmbda")
 sdr_colour = Color(0, 1, 0, 1)
 
@@ -109,9 +109,9 @@ custom_minimum_size = Vector2(400, 100)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 17.0
-offset_top = 853.0
+offset_top = 812.0
 offset_right = 417.0
-offset_bottom = 953.0
+offset_bottom = 912.0
 
 [node name="sRGBPrimaryRed" parent="PrimariesAndNegatives" unique_id=190354221 instance=ExtResource("4_mmbda")]
 position = Vector2(67, 49)
@@ -153,13 +153,15 @@ material = SubResource("ShaderMaterial_ui7v2")
 
 [node name="Label" type="Label" parent="." unique_id=37204696]
 offset_left = 23.0
-offset_top = 966.0
-offset_right = 872.0
-offset_bottom = 1033.0
+offset_top = 925.0
+offset_right = 638.0
+offset_bottom = 1069.0
 theme_override_colors/font_color = Color(0.8138667, 0.8138666, 0.81386656, 1)
-theme_override_font_sizes/font_size = 35
 text = "Usage: If HDR output is working correctly, all colours should remain identical
-as HDR is enabled and disabled, except for the \"max green\" indicator."
+as HDR is enabled and disabled, except for the \"max green\" indicator.
+
+Note: SDR may appear different than HDR on platforms that apply additional
+processing to simulate SDR display behaviour, such as Valve gamescope."
 
 [node name="ToggleHDRTimer" type="Timer" parent="." unique_id=872073183]
 wait_time = 2.0

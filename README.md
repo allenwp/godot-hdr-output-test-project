@@ -1,16 +1,12 @@
-# Godot HDR Output Test Project
+# Godot HDR output porting test project 
 
 https://github.com/user-attachments/assets/297c2686-d939-4571-9bd0-e5808906d5ee
 
 ## Overview
 
-This sample project was made with a few goals in mind:
+This porting test project has been designed to aid in porting Godot's [HDR output feature](https://github.com/godotengine/godot/pull/94496) to new platforms. It has two scenes: the main scene and an SDR/HDR Stability Test that is suitable for use on all platform except for Linux.
 
-1) Demonstrate a player-facing in-game settings menu that could be shipped with any game that supports HDR output.
-2) Provide demonstration of Godot's Extended Dynamic Range (EDR) and High Dynamic Range (HDR) functionality.
-3) Provide debug tooling to help implementation of HDR output on new platforms.
-4) Provide tooling to understand your display's max luminance and its tonemapping behaviour.
-5) Be a first draft of a demo for [godot-demo-projects](https://github.com/godotengine/godot-demo-projects)
+This project builds on top of the [official demo project](https://github.com/godotengine/godot-demo-projects/pull/1287) to provide additional debug information and test images that are valuable when testing a new HDR output implementation.
 
 ### Player-facing in-game settings
 
@@ -49,3 +45,5 @@ The bottom-right red, green, and blue rectangles will show negative sRGB values 
 The `sdr_hdr_stability_test.tscn` scene can be used to verify that output is stable between SDR and HDR. In this scene, all colours should be identical regardless of HDR or SDR output except for the "max green" rectangle:
 
 https://github.com/user-attachments/assets/f64b6910-29d5-458a-8afd-8dea71a90650
+
+**Note:** This test scene is only suitable for use on platforms that use the nonlinear (piecewise) sRGB transfer function to decode SDR content for transport over an HDR signal! This means this test scene should not be used on Linux/Wayland platforms, especially not ones that use Gamescope.

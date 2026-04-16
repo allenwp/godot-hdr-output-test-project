@@ -3,8 +3,10 @@ extends Node2D
 
 func _ready() -> void:
 	var window_id = get_window().get_window_id()
-	DisplayServer.window_set_hdr_output_reference_luminance(-1, window_id)
-	DisplayServer.window_set_hdr_output_max_luminance(-1, window_id)
+	if DisplayServer.window_get_hdr_output_reference_luminance(window_id) >= 0.0:
+		DisplayServer.window_set_hdr_output_reference_luminance(-1, window_id)
+	if DisplayServer.window_get_hdr_output_max_luminance(window_id) >= 0.0:
+		DisplayServer.window_set_hdr_output_max_luminance(-1, window_id)
 
 
 func _process(_delta: float) -> void:

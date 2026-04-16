@@ -160,7 +160,7 @@ text = "Usage: If HDR output is working correctly, all colours should remain ide
 as HDR is enabled and disabled, except for the \"max green\" indicator.
 
 Note: SDR may appear different than HDR on platforms that apply additional
-processing to simulate SDR display behaviour, such as Valve gamescope."
+colour processing to SDR windows, such as Valve gamescope or Wayland."
 
 [node name="ToggleHDRTimer" type="Timer" parent="." unique_id=872073183]
 wait_time = 2.0
